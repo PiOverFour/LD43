@@ -4,16 +4,16 @@ export var VELOCITY = Vector2(100, 100)
 var direction = Vector2()
 
 func _ready():
-    pass
+	pass
 
 func _process(delta):
-    direction = get_local_mouse_position()
-    if direction.length_squared() < 5:
-        direction.x = 0
-        direction.y = 0
-    direction = direction.normalized()
-#    position += velocity * delta * direction
-    move_and_slide(VELOCITY * direction)
+	if Input.is_mouse_button_pressed(BUTTON_LEFT):
+		direction = get_local_mouse_position()
+		if direction.length_squared() < 5:
+			direction.x = 0
+			direction.y = 0
+		direction = direction.normalized()
+		move_and_slide(VELOCITY * direction)
 
 #func _unhandled_key_input(event):
 #    if event is InputEventKey:
