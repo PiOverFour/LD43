@@ -16,7 +16,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-manager="*res://Scripts/manager.gd"
+Manager="*res://Scripts/Manager.gd"
 
 [display]
 
