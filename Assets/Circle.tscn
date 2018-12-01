@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/Circle.gd" type="Script" id=1]
+
+[node name="Circle" type="Polygon2D"]
+
+polygon = PoolVector2Array( 500, 0, 490.393, 97.5452, 461.94, 191.342, 415.735, 277.785, 353.553, 353.553, 277.785, 415.735, 191.342, 461.94, 97.5452, 490.393, 3.06162e-14, 500, -97.5452, 490.393, -191.342, 461.94, -277.785, 415.735, -353.553, 353.553, -415.735, 277.785, -461.94, 191.342, -490.393, 97.5452, -500, 6.12323e-14, -490.393, -97.5452, -461.94, -191.342, -415.735, -277.785, -353.553, -353.553, -277.785, -415.735, -191.342, -461.94, -97.5452, -490.393, -9.18485e-14, -500, 97.5452, -490.393, 191.342, -461.94, 277.785, -415.735, 353.553, -353.553, 415.735, -277.785, 461.94, -191.342, 490.393, -97.5452 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+script = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+radius = null
+vertices = null
+
+
