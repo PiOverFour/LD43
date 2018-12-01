@@ -2,8 +2,8 @@ extends KinematicBody2D
 
 var speed
 export(float) var rotation_speed = 5.0
-export(float) var min_speed = 0.2
-export(float) var max_speed = 0.5
+export(float) var min_speed = 0.5
+export(float) var max_speed = 1
 export(float) var neighbour_min_distance = 5
 export(float) var group_detection_distance = 30
 export(float) var target_detection_distance = 400
