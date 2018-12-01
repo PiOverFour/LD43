@@ -6,7 +6,7 @@ export(float) var min_speed = 0.5
 export(float) var max_speed = 1
 export(float) var neighbour_min_distance = 5
 export(float) var group_detection_distance = 30
-export(float) var target_detection_distance = 400
+export(float) var target_detection_distance = 300
 
 export(float) var state_time = 0.2
 
@@ -28,9 +28,9 @@ export(float) var target_follow_group = 0.3
 export(float) var target_vortex = 0
 
 export(float) var group_follow = 1
-export(float) var group_vortex = 0
+export(float) var group_vortex = 0.05
 
-export(float) var alone_vortex = 0.1
+export(float) var alone_vortex = 0.2
 export(float) var alone_wander = 0.3
 
 var v_target = Vector2()

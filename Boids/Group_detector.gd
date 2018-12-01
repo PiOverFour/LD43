@@ -13,8 +13,9 @@ func _process(delta):
 		return
 	
 	for body in overlapping_bodies:
-		if not body.is_in_group("boids") and not body.is_in_group("player"):
+		if not body.is_in_group("boids"):
 			return
+#		print(body)
 		group_position += body.position
 		average_heading += body.heading
 		count += 1
