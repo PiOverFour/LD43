@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var VELOCITY = Vector2(100, 100)
+export var VELOCITY = Vector2(300, 300)
 var direction = Vector2()
 
 func _ready():

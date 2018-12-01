@@ -13,6 +13,7 @@ script = ExtResource( 1 )
 ] instance=ExtResource( 2 )]
 
 position = Vector2( 610, 340 )
+VELOCITY = Vector2( 300, 300 )
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="2"]
 

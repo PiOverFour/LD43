@@ -1,19 +1,21 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Boids/Boid.gd" type="Script" id=1]
-[ext_resource path="res://Boids/avoid_detection.gd" type="Script" id=2]
-
-[sub_resource type="CircleShape2D" id=2]
-
-custom_solver_bias = 0.0
-radius = 10.0
+[ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://Boids/Avoid_detection.gd" type="Script" id=3]
+[ext_resource path="res://Boids/Group_detector.gd" type="Script" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Boid" type="KinematicBody2D" index="0" groups=[
+[sub_resource type="CircleShape2D" id=2]
+
+custom_solver_bias = 0.0
+radius = 10.0
+
+[node name="Boid" type="KinematicBody2D" groups=[
 "boids",
 ]]
 
@@ -23,18 +25,29 @@ collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
 rotation_speed = 5.0
-min_speed = 0.5
-max_speed = 2.0
-neighbour_min_distance = 3
-neighbour_detection_distance = 3
-state_time = 1
+min_speed = 0.2
+max_speed = 0.5
+neighbour_min_distance = 5
+group_detection_distance = 30
+target_detection_distance = 400
+state_time = 0.2
+group = false
 boidState = null
+target_follow = 0.7
+target_follow_group = 0.3
+target_vortex = 0
+group_follow = 1
+group_vortex = 0
+alone_vortex = 0.1
+alone_wander = 0.3
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+texture = ExtResource( 2 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Timer_State" type="Timer" parent="." index="2"]
 
@@ -61,11 +74,63 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 2 )
+script = ExtResource( 3 )
 
 [node name="neighbour_min_distance" type="CollisionShape2D" parent="avoid_detection" index="0"]
 
-shape = SubResource( 1 )
+scale = Vector2( 20, 20 )
+shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="Polygon2D" type="Polygon2D" parent="avoid_detection/neighbour_min_distance" index="0"]
+
+scale = Vector2( 0.05, 0.05 )
+polygon = PoolVector2Array( 166.565, 112.665, 110.364, 158.277, -1.22372, 200.631, -125.843, 145.245, -198.334, -2.18086, -155.165, -120.284, -32.9895, -193.59, 88.3719, -169.969, 168.194, -104.809, 199.959, 2.70618 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 0.171294 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[node name="group_detector" type="Area2D" parent="." index="5"]
+
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 4 )
+
+[node name="group_distance" type="CollisionShape2D" parent="group_detector" index="0"]
+
+scale = Vector2( 20, 20 )
+shape = SubResource( 2 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Polygon2D" type="Polygon2D" parent="group_detector/group_distance" index="0"]
+
+scale = Vector2( 0.05, 0.05 )
+polygon = PoolVector2Array( 166.565, 112.665, 110.364, 158.277, -1.22372, 200.631, -125.843, 145.245, -198.334, -2.18086, -155.165, -120.284, -32.9895, -193.59, 88.3719, -169.969, 168.194, -104.809, 199.959, 2.70618 )
+uv = PoolVector2Array(  )
+color = Color( 1, 0, 0, 0.171294 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+
+[connection signal="timeout" from="Timer_State" to="." method="_on_Timer_State_timeout"]
 
 
