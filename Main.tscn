@@ -34,6 +34,42 @@ editor_draw_drag_margin = false
 
 [node name="Player" parent="." index="1" instance=ExtResource( 2 )]
 
-velocity = Vector2( 50, 50 )
+VELOCITY = Vector2( 100, 100 )
+
+[node name="Polygon2D" type="Polygon2D" parent="." index="2"]
+
+position = Vector2( 746.496, 368.846 )
+polygon = PoolVector2Array( -340.736, -228.062, -278.939, -142.883, -305.662, -19.2896, -405.873, -94.4478, -486.496, -178.846, -517.775, -294.87, -639.698, -231.403, -644.709, -331.614, -547.838, -368.358, -435.936, -299.88 )
+uv = PoolVector2Array(  )
+color = Color( 1, 1, 1, 1 )
+vertex_colors = PoolColorArray(  )
+offset = Vector2( 0, 0 )
+antialiased = false
+texture = null
+texture_offset = Vector2( 0, 0 )
+texture_scale = Vector2( 1, 1 )
+texture_rotation_degrees = 0.0
+invert_enable = false
+invert_border = 100.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="Polygon2D" index="0"]
+
+position = Vector2( -397.503, -167.018 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+_sections_unfolded = [ "Transform" ]
+
+[node name="Collision" type="CollisionPolygon2D" parent="Polygon2D/StaticBody2D" index="0"]
+
+position = Vector2( 401.007, 168.173 )
+build_mode = 0
+polygon = PoolVector2Array( -340.736, -228.062, -278.939, -142.883, -305.662, -19.2896, -405.873, -94.4478, -486.496, -178.846, -517.775, -294.87, -639.698, -231.403, -644.709, -331.614, -547.838, -368.358, -435.936, -299.88 )
+_sections_unfolded = [ "Transform" ]
 
 
