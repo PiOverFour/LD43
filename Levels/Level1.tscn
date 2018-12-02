@@ -12,6 +12,7 @@
 script = ExtResource( 1 )
 boidArray = [ "YELLOW", "BLUE" ]
 totemArray = [ NodePath("Yellow_Totem") ]
+bounds = 1000
 
 [node name="Border" parent="." index="0" instance=ExtResource( 2 )]
 

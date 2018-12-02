@@ -53,10 +53,17 @@ func load_level(level):
 			get_node("/root/Main").remove_child(c)
 			c.queue_free()
 	
+	# Load new level
 	var level_scene = LEVELS[level].instance()
 	get_node("/root/Main").add_child(level_scene)
 	get_node("/root/Main").move_child(level_scene, 0)
-
+	
+	# Setup camera
+	var bounds = level_scene.bounds
+	get_node("/root/Main/Player/Camera2D").limit_left = -bounds
+	get_node("/root/Main/Player/Camera2D").limit_top = -bounds
+	get_node("/root/Main/Player/Camera2D").limit_right = bounds
+	get_node("/root/Main/Player/Camera2D").limit_bottom = bounds
 #############
 #var agents = []
 #var target
