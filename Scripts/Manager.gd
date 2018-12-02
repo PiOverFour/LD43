@@ -17,7 +17,7 @@ func _ready():
 #		call_deferred("add_boid")
 
 func add_boid():
-	print("Adding boid...")
+#	print("Adding boid...")
 	var boid_instance = boid_node.instance()
 	var angle = rand_range(-PI, PI)
 	boid_instance.position = Vector2(cos(angle), sin(angle))*boid_radius

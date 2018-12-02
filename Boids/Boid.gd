@@ -58,6 +58,8 @@ onready var group_detection = $group_detector
 
 onready var player = get_node("../Player")
 
+onready var timer_sound = $Timer_Sound
+
 func _ready():
 	speed = rand_range(min_speed, max_speed)
 	previous_speed = speed
@@ -152,3 +154,7 @@ func _on_Timer_State_timeout():
 	timer.stop()
 	timer.wait_time = state_time
 	lock = false
+
+func _on_Timer_Sound_timeout():
+	$Bubble.play()
+	timer_sound.wait_time = rand_range(1, 10)
