@@ -44,7 +44,9 @@ alone_wander = 0.2
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
+scale = Vector2( 0.5, 0.5 )
 texture = ExtResource( 2 )
+_sections_unfolded = [ "Transform" ]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
@@ -79,6 +81,7 @@ script = ExtResource( 3 )
 
 [node name="neighbour_min_distance" type="CollisionShape2D" parent="avoid_detection" index="0"]
 
+visible = false
 scale = Vector2( 20, 20 )
 shape = SubResource( 2 )
 _sections_unfolded = [ "Transform" ]

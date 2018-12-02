@@ -6,14 +6,28 @@ const boid_nodes = {
 	YELLOW: preload("res://Boids/Yellow.tscn"),
 	BLUE: preload("res://Boids/Blue.tscn"),
 	}
+	
+const boid_names = {
+	RED: "RED",
+	YELLOW: "YELLOW",
+	BLUE: "BLUE",
+	}
 
-#var boid_node = preload("res://Boids/boid.tscn")
+var sacrificed_boids = {
+	'RED': 0,
+	'YELLOW': 0,
+	'BLUE': 0,
+	}
+	
+const BOID_LIVES = 10
+
 var boid_radius = 800
 onready var timer = Timer.new()
 
 func _ready():
+	update_life_bars()
 	# Set up boid instancing
-	timer.wait_time = 1
+	timer.wait_time = 2 # Spawn interval
 	timer.connect("timeout", self, "add_boid")
 	timer.autostart = true
 	timer.process_mode = timer.TIMER_PROCESS_PHYSICS
@@ -32,6 +46,12 @@ func add_boid():
 #	get_tree().root.add_child(boid_instance)
 	get_node("/root/Main").add_child(boid_instance)
 
+func update_life_bars():
+	for type in BOID_TYPES:
+		print(typeof(type))
+		get_node("/root/Main/UI/PC/HC/VC/" + type).value = 100 - 100 * sacrificed_boids[type] / BOID_LIVES
+
+#############"
 #var agents = []
 var target
 #var average_velocity = Vector2()
