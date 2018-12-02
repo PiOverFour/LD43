@@ -39,9 +39,9 @@ func update_life_bars():
 	get_node("/root/Main/UI/PC/HC/VC/SACRIFICED").value = 100 - 100 * sacrificed_boids / BOID_LIVES
 
 func game_over():
-	pass
-#	get_node("/root/Main/UI/GameOver").visible = true
-#	get_node("/root/Main/UI/AnimationPlayer").play("GameOver")
+#	pass
+	get_node("/root/Main/UI/GameOver").visible = true
+	get_node("/root/Main/UI/AnimationPlayer").play("GameOver")
 
 func load_level(level):
 	# Reset sacrifices
@@ -66,6 +66,15 @@ func load_level(level):
 		get_node("/root/Main/Player/Camera2D").limit_top = -bounds
 		get_node("/root/Main/Player/Camera2D").limit_right = bounds
 		get_node("/root/Main/Player/Camera2D").limit_bottom = bounds
+	
+	# End Game
+	if level == "End":
+		for n in ["Player", "UI"]:
+			var c = get_node("/root/Main/" + n)
+			get_node("/root/Main").remove_child(c)
+			c.queue_free()
+		
+	
 #############
 #var agents = []
 #var target
