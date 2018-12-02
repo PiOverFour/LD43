@@ -24,11 +24,12 @@ collision_layer = 1
 collision_mask = 1
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+boidType = null
 rotation_speed = 5.0
-min_speed = 0.5
-max_speed = 1
-neighbour_min_distance = 5
-group_detection_distance = 30
+min_speed = 50
+max_speed = 150
+neighbour_min_distance = 10
+group_detection_distance = 40
 target_detection_distance = 300
 state_time = 0.2
 group = false
@@ -36,10 +37,10 @@ boidState = null
 target_follow = 0.7
 target_follow_group = 0.3
 target_vortex = 0
-group_follow = 1
-group_vortex = 0
-alone_vortex = 0.2
-alone_wander = 0.3
+group_follow = 0.5
+group_vortex = 0.5
+alone_vortex = 0.8
+alone_wander = 0.2
 
 [node name="Sprite" type="Sprite" parent="." index="0"]
 
