@@ -23,4 +23,3 @@ func _process(delta):
 			return
 		body.v_door_repulse = orientation * cos((body.position - position).angle_to(orientation))
 		body.boidState = STATE.REPULSED
-#		print(body.boidState)

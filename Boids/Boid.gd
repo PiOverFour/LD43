@@ -153,6 +153,7 @@ func update_state(boidState):
 			print("REPULSED")
 			speed = min_speed * max_speed / 2
 			heading = v_door_repulse.normalized()
+			timer.wait_time = 1
 		ATTRACTED:
 			pass
 	
@@ -163,6 +164,7 @@ func update_state(boidState):
 func _on_Timer_State_timeout():
 	timer.stop()
 	timer.wait_time = state_time
+	boidState = STATE.ALONE
 	lock = false
 
 func _on_Timer_Sound_timeout():
