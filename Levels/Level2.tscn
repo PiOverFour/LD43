@@ -20,6 +20,7 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 boidArray = [ "YELLOW", "BLUE", "RED" ]
 totemArray = [ NodePath("Red_Totem"), NodePath("Blue_Totem"), NodePath("Yellow_Totem") ]
+bounds = 1600
 
 [node name="Border" parent="." index="0" instance=ExtResource( 2 )]
 

@@ -13,6 +13,8 @@ const boids = {
 
 export(Array) var totemArray = Array()
 
+export var bounds = 1000
+
 onready var timer = Timer.new()
 
 var boid_radius = 800
