@@ -14,10 +14,11 @@ const boids = {
 export(Array) var totemArray = Array()
 
 export var bounds = 1000
+export var boid_radius = 800
+export(String) var next_level
 
 onready var timer = Timer.new()
 
-var boid_radius = 800
 
 var valid = false
 
@@ -46,7 +47,7 @@ func _process(delta):
 			
 	if valid:
 		# win
-		Manager.load_level("Level2")
+		Manager.load_level(next_level)
 		pass
 
 func add_boid():

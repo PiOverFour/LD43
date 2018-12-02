@@ -2,7 +2,7 @@
 
 [ext_resource path="res://Scripts/Level_manager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Circle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Levels/L1_concept12.jpg" type="Texture" id=3]
+[ext_resource path="res://Levels/niveau1.jpg" type="Texture" id=3]
 [ext_resource path="res://Assets/Pit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Totem/Yellow_Totem.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Doors/Blue_Doors.tscn" type="PackedScene" id=6]
@@ -13,6 +13,8 @@ script = ExtResource( 1 )
 boidArray = [ "YELLOW", "BLUE" ]
 totemArray = [ NodePath("Yellow_Totem") ]
 bounds = 1000
+boid_radius = 800
+next_level = "Level2"
 
 [node name="Border" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -21,13 +23,12 @@ color = Color( 0.527344, 0.527344, 0.527344, 1 )
 radius = 500
 vertices = 32
 
-[node name="L1_concept12" type="Sprite" parent="." index="1"]
+[node name="niveau1" type="Sprite" parent="." index="1"]
 
-modulate = Color( 1, 1, 1, 0.502745 )
-position = Vector2( -13.6324, -22.7207 )
-scale = Vector2( 2.2, 2.2 )
+position = Vector2( 4, -9 )
+scale = Vector2( 3.8, 3.8 )
 texture = ExtResource( 3 )
-_sections_unfolded = [ "Offset", "Transform", "Visibility" ]
+_sections_unfolded = [ "Transform" ]
 
 [node name="Pit" parent="." index="2" instance=ExtResource( 4 )]
 

@@ -3,6 +3,7 @@ extends Node
 const LEVELS = {
 	"Level1": preload("res://Levels/Level1.tscn"),
 	"Level2": preload("res://Levels/Level2.tscn"),
+	"End": preload("res://Levels/End.tscn"),
 	}
 
 enum BOID_TYPES { RED, YELLOW, BLUE }
@@ -38,9 +39,9 @@ func update_life_bars():
 	get_node("/root/Main/UI/PC/HC/VC/SACRIFICED").value = 100 - 100 * sacrificed_boids / BOID_LIVES
 
 func game_over():
-	pass
-#	get_node("/root/Main/UI/GameOver").visible = true
-#	get_node("/root/Main/UI/AnimationPlayer").play("GameOver")
+#	pass
+	get_node("/root/Main/UI/GameOver").visible = true
+	get_node("/root/Main/UI/AnimationPlayer").play("GameOver")
 
 func load_level(level):
 	# Reset sacrifices
@@ -59,11 +60,21 @@ func load_level(level):
 	get_node("/root/Main").move_child(level_scene, 0)
 	
 	# Setup camera
-	var bounds = level_scene.bounds
-	get_node("/root/Main/Player/Camera2D").limit_left = -bounds
-	get_node("/root/Main/Player/Camera2D").limit_top = -bounds
-	get_node("/root/Main/Player/Camera2D").limit_right = bounds
-	get_node("/root/Main/Player/Camera2D").limit_bottom = bounds
+	if "bounds" in level_scene:
+		var bounds = level_scene.bounds
+		get_node("/root/Main/Player/Camera2D").limit_left = -bounds
+		get_node("/root/Main/Player/Camera2D").limit_top = -bounds
+		get_node("/root/Main/Player/Camera2D").limit_right = bounds
+		get_node("/root/Main/Player/Camera2D").limit_bottom = bounds
+	
+	# End Game
+	if level == "End":
+		for n in ["Player", "UI"]:
+			var c = get_node("/root/Main/" + n)
+			get_node("/root/Main").remove_child(c)
+			c.queue_free()
+		
+	
 #############
 #var agents = []
 #var target
