@@ -1,12 +1,7 @@
 [gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
-
-[sub_resource type="ConvexPolygonShape2D" id=1]
-
-custom_solver_bias = 0.0
-points = PoolVector2Array( -16.922, -19.8444, -16.922, 19.758, 31.946, 0.0899696 )
-_sections_unfolded = [ "Resource" ]
+[ext_resource path="res://Units/target.png" type="Texture" id=2]
 
 [node name="Player" type="KinematicBody2D"]
 
@@ -17,25 +12,15 @@ collision/safe_margin = 0.08
 script = ExtResource( 1 )
 VELOCITY = Vector2( 100, 100 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." index="0"]
+[node name="target" type="Sprite" parent="." index="0"]
 
-shape = SubResource( 1 )
-_sections_unfolded = [ "Transform", "Visibility" ]
-
-[node name="Polygon2D" type="Polygon2D" parent="." index="1"]
-
-polygon = PoolVector2Array( -16.922, -19.8444, -16.922, 19.758, 31.946, 0.0899696 )
-uv = PoolVector2Array(  )
-color = Color( 1, 1, 1, 1 )
-vertex_colors = PoolColorArray(  )
-offset = Vector2( 0, 0 )
-antialiased = false
-texture = null
-texture_offset = Vector2( 0, 0 )
-texture_scale = Vector2( 1, 1 )
-texture_rotation_degrees = 0.0
-invert_enable = false
-invert_border = 100.0
+rotation = -1.5708
+texture = ExtResource( 2 )
 _sections_unfolded = [ "Transform" ]
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="." index="1"]
+
+build_mode = 0
+polygon = PoolVector2Array( -4.28704, -41.7063, -42.3987, 0.775963, 0.957687, 40.9855, 32.7757, 5.49622, 47.6358, -0.972276, 37.1463, -6.217 )
 
 

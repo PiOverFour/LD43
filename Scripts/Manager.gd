@@ -29,11 +29,9 @@ func _ready():
 	# Set up boid instancing
 	timer.wait_time = 2 # Spawn interval
 	timer.connect("timeout", self, "add_boid")
-	timer.autostart = false
+	timer.autostart = true
 	timer.process_mode = timer.TIMER_PROCESS_PHYSICS
-#	timer.start()
 	add_child(timer)
-	print(timer.is_stopped())
 #	for i in range(50):
 #		call_deferred("add_boid")
 
@@ -43,12 +41,10 @@ func add_boid():
 	var boid_instance = boid_nodes[boid_type].instance()
 	var angle = rand_range(-PI, PI)
 	boid_instance.position = Vector2(cos(angle), sin(angle))*boid_radius
-#	get_tree().root.add_child(boid_instance)
 	get_node("/root/Main").add_child(boid_instance)
 
 func update_life_bars():
 	for type in BOID_TYPES:
-		print(typeof(type))
 		get_node("/root/Main/UI/PC/HC/VC/" + type).value = 100 - 100 * sacrificed_boids[type] / BOID_LIVES
 
 #############"
