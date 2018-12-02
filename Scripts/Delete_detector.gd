@@ -11,7 +11,7 @@ func delete(boid):
 	if boid != null and boid.get_parent() != null:
 		var type = boid.boidType
 		print('incrementing type ', type)
-		Manager.sacrificed_boids[Manager.boid_names[type]] += 1
+		Manager.sacrificed_boids += 1
 		Manager.update_life_bars()
 		boid.get_parent().remove_child(boid)
 		boid.queue_free()
