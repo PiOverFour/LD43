@@ -40,6 +40,7 @@ script = null
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
+visible = false
 texture = ExtResource( 3 )
 
 

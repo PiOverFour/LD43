@@ -8,7 +8,7 @@
 custom_solver_bias = 0.0
 extents = Vector2( 10, 1.60003 )
 
-[node name="Yellow_Doors_Repulse" type="Area2D" index="0" groups=[
+[node name="Yellow_Doors_Repulse" type="Area2D" groups=[
 "doors",
 ]]
 
