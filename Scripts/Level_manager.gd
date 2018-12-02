@@ -1,7 +1,6 @@
 extends Node2D
 
 export(Array) var boidArray = Array()
-
 var boid_nodes = Array()
 
 enum BOID_TYPES { RED, YELLOW, BLUE }
@@ -11,6 +10,8 @@ const boids = {
 	"YELLOW": "res://Boids/Yellow/",
 	"BLUE": "res://Boids/Blue/",
 	}
+
+export(Array) var totemArray = Array()
 
 onready var timer = Timer.new()
 

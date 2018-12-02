@@ -1,23 +1,17 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scripts/Level_manager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Circle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/L1_concept12.jpg" type="Texture" id=3]
-[ext_resource path="res://Scripts/Delete_detector.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Pit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Totem/Yellow_Totem.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Doors/Blue_Doors.tscn" type="PackedScene" id=6]
-
-
-
-[sub_resource type="CircleShape2D" id=1]
-
-custom_solver_bias = 0.0
-radius = 62.0075
 
 [node name="Level1" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 boidArray = [ "YELLOW", "BLUE" ]
+totemArray = [ NodePath("Yellow_Totem") ]
 
 [node name="Border" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -34,28 +28,7 @@ scale = Vector2( 2.2, 2.2 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Offset", "Transform", "Visibility" ]
 
-[node name="Pit" type="Area2D" parent="." index="2"]
-
-editor/display_folded = true
-input_pickable = true
-gravity_vec = Vector2( 0, 1 )
-gravity = 98.0
-linear_damp = 0.1
-angular_damp = 1.0
-audio_bus_override = false
-audio_bus_name = "Master"
-script = ExtResource( 4 )
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" index="0"]
-
-shape = SubResource( 1 )
-
-[node name="PitPolygon" parent="Pit" index="1" instance=ExtResource( 2 )]
-
-polygon = PoolVector2Array( 70, 0, 68.655, 13.6563, 64.6716, 26.7878, 58.2029, 38.8899, 49.4975, 49.4975, 38.8899, 58.2029, 26.7878, 64.6716, 13.6563, 68.655, 4.28626e-15, 70, -13.6563, 68.655, -26.7878, 64.6716, -38.8899, 58.2029, -49.4975, 49.4975, -58.2029, 38.8899, -64.6716, 26.7878, -68.655, 13.6563, -70, 8.57253e-15, -68.655, -13.6563, -64.6716, -26.7878, -58.2029, -38.8899, -49.4975, -49.4975, -38.8899, -58.2029, -26.7878, -64.6716, -13.6563, -68.655, -1.28588e-14, -70, 13.6563, -68.655, 26.7878, -64.6716, 38.8899, -58.2029, 49.4975, -49.4975, 58.2029, -38.8899, 64.6716, -26.7878, 68.655, -13.6563 )
-color = Color( 0, 0, 0, 1 )
-radius = 500
-vertices = 32
+[node name="Pit" parent="." index="2" instance=ExtResource( 4 )]
 
 [node name="Obstacle" type="StaticBody2D" parent="." index="3"]
 
