@@ -1,9 +1,5 @@
 extends KinematicBody2D
 
-var texture_red = preload("res://Boids/boid_R.png")
-var texture_blue = preload("res://Boids/boid_B.png")
-var texture_yellow = preload("res://Boids/boid_Y.png")
-
 enum TYPE { RED, YELLOW, BLUE }
 export(TYPE) var boidType = TYPE.RED
 
@@ -67,15 +63,6 @@ onready var player = get_node("../Player")
 onready var timer_sound = $Timer_Sound
 
 func _ready():
-	# Init type
-	var image_path
-	boidType = randi() % 3
-	if boidType == RED:
-		$Sprite.texture = texture_red
-	elif boidType == BLUE:
-		$Sprite.texture = texture_blue
-	elif boidType == YELLOW:
-		$Sprite.texture = texture_yellow
 	
 	speed = rand_range(min_speed, max_speed)
 	previous_speed = speed
@@ -113,7 +100,7 @@ func _process(delta):
 			v_avoid = Vector2(0,0)
 		
 #		print(group_detection.count)
-		if boidState != STATE.REPULSED or boidState != STATE.ATTRACTED:
+		if boidState != STATE.REPULSED and boidState != STATE.ATTRACTED:
 			# set state
 			if v_target.length() < target_detection_distance:
 				boidState = STATE.TARGET
