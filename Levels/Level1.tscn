@@ -57,7 +57,6 @@ vertices = 32
 
 [node name="Obstacle" type="StaticBody2D" parent="." index="3"]
 
-editor/display_folded = true
 position = Vector2( -13.6324, -22.7207 )
 scale = Vector2( 2.2, 2.2 )
 input_pickable = false
@@ -77,21 +76,21 @@ polygon = PoolVector2Array( -5.49011, 378.048, 15.0933, 378.606, 15.0508, 270.96
 
 position = Vector2( 0, -241.244 )
 build_mode = 0
-polygon = PoolVector2Array( -5.49011, 378.048, 15.0933, 378.606, 15.0508, 270.964, -5.15335, 270.964 )
+polygon = PoolVector2Array( -5.49011, 378.048, 15.0933, 378.606, 15.327, 284.448, -4.27406, 284.75 )
 
 [node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Obstacle" index="2"]
 
 position = Vector2( 211.809, 115.394 )
 rotation = 2.07454
 build_mode = 0
-polygon = PoolVector2Array( -5.49011, 378.048, 15.0933, 378.606, 16.0061, 258.562, -2.64473, 247.838 )
+polygon = PoolVector2Array( -5.49011, 378.048, 15.0933, 378.606, 15.0634, 261.843, -1.13376, 261.818 )
 
 [node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Obstacle" index="3"]
 
 position = Vector2( -192.424, 131.615 )
 rotation = 4.19285
 build_mode = 0
-polygon = PoolVector2Array( -5.49011, 378.048, 15.0933, 378.606, 16.1125, 258.628, -5.31922, 257.834 )
+polygon = PoolVector2Array( -5.13961, 377.781, 15.0933, 378.606, 14.8408, 264.494, -5.39415, 264.038 )
 
 [node name="Yellow_Totem" parent="." index="4" instance=ExtResource( 5 )]
 

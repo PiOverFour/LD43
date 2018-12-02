@@ -3,13 +3,14 @@
 [ext_resource path="res://Player/Player.gd" type="Script" id=1]
 [ext_resource path="res://Units/target.png" type="Texture" id=2]
 
-[node name="Player" type="KinematicBody2D"]
+[node name="Player" type="KinematicBody2D" index="0"]
 
 input_pickable = false
-collision_layer = 1
-collision_mask = 1
+collision_layer = 1025
+collision_mask = 1025
 collision/safe_margin = 0.08
 script = ExtResource( 1 )
+_sections_unfolded = [ "Collision" ]
 VELOCITY = Vector2( 100, 100 )
 
 [node name="target" type="Sprite" parent="." index="0"]
