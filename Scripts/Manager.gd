@@ -2,7 +2,7 @@ extends Node
 
 const LEVELS = {
 	"Level1": preload("res://Levels/Level1.tscn"),
-	"Level2": 1,
+	"Level2": preload("res://Levels/Level2.tscn"),
 	}
 
 enum BOID_TYPES { RED, YELLOW, BLUE }
@@ -24,6 +24,7 @@ var BOID_LIVES = 10
 
 
 func _ready():
+	randomize()
 	load_level("Level1")
 	update_life_bars()
 #	for i in range(50):

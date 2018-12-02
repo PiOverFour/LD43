@@ -44,7 +44,7 @@ func _process(delta):
 			
 	if valid:
 		# win
-		print("you win")
+		Manager.load_level("Level2")
 		pass
 
 func add_boid():
@@ -54,5 +54,5 @@ func add_boid():
 	var angle = rand_range(-PI, PI)
 	boid_instance.position = Vector2(cos(angle), sin(angle))*boid_radius
 #	get_tree().root.add_child(boid_instance)
-	get_node("/root/Main").add_child(boid_instance)
+	add_child(boid_instance)
 	pass

@@ -58,7 +58,7 @@ onready var timer = $Timer_State
 onready var avoid_detection = $avoid_detection
 onready var group_detection = $group_detector
 
-onready var player = get_node("../Player")
+onready var player = get_node("../../Player")
 
 onready var timer_sound = $Timer_Sound
 
