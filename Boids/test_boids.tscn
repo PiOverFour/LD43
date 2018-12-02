@@ -92,106 +92,122 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Boid" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( -179.146, 409.55 )
+position = Vector2( 697.7, -4.65454 )
 boidType = null
-min_speed = 50
 max_speed = 150
 neighbour_min_distance = 10
 group_detection_distance = 40
 group_follow = 0.5
 group_vortex = 0.5
-alone_vortex = 0.8
-alone_wander = 0.2
 
 [node name="Boid2" parent="." index="5" instance=ExtResource( 5 )]
 
-position = Vector2( -693.563, 225.83 )
+position = Vector2( 615.861, -253.512 )
 boidType = null
-min_speed = 50
 max_speed = 150
 neighbour_min_distance = 10
 group_detection_distance = 40
 group_follow = 0.5
 group_vortex = 0.5
-alone_vortex = 0.8
-alone_wander = 0.2
 
 [node name="Boid3" parent="." index="6" instance=ExtResource( 5 )]
 
-position = Vector2( -640.117, -154.971 )
+position = Vector2( 500.618, -450.593 )
 boidType = null
-min_speed = 50
 max_speed = 150
 neighbour_min_distance = 10
 group_detection_distance = 40
 group_follow = 0.5
 group_vortex = 0.5
-alone_vortex = 0.8
-alone_wander = 0.2
 
 [node name="Boid4" parent="." index="7" instance=ExtResource( 5 )]
 
-position = Vector2( -411.302, -517.401 )
+position = Vector2( 285.165, -635.984 )
 boidType = null
-min_speed = 50
 max_speed = 150
 neighbour_min_distance = 10
 group_detection_distance = 40
 group_follow = 0.5
 group_vortex = 0.5
-alone_vortex = 0.8
-alone_wander = 0.2
 
 [node name="Boid5" parent="." index="8" instance=ExtResource( 5 )]
 
-position = Vector2( 64.7001, -519.071 )
+position = Vector2( -32.1702, -620.952 )
 boidType = null
-min_speed = 50
 max_speed = 150
 neighbour_min_distance = 10
 group_detection_distance = 40
 group_follow = 0.5
 group_vortex = 0.5
-alone_vortex = 0.8
-alone_wander = 0.2
 
 [node name="Boid6" parent="." index="9" instance=ExtResource( 5 )]
 
-position = Vector2( 550.723, -256.852 )
+position = Vector2( -361.196, -504.039 )
 boidType = null
-min_speed = 50
 max_speed = 150
 neighbour_min_distance = 10
 group_detection_distance = 40
 group_follow = 0.5
 group_vortex = 0.5
-alone_vortex = 0.8
-alone_wander = 0.2
 
 [node name="Boid7" parent="." index="10" instance=ExtResource( 5 )]
 
-position = Vector2( 679.327, 57.1419 )
+position = Vector2( -606.713, -275.224 )
 boidType = null
-min_speed = 50
 max_speed = 150
 neighbour_min_distance = 10
 group_detection_distance = 40
 group_follow = 0.5
 group_vortex = 0.5
-alone_vortex = 0.8
-alone_wander = 0.2
 
 [node name="Boid8" parent="." index="11" instance=ExtResource( 5 )]
 
-position = Vector2( 405.417, -570.847 )
+position = Vector2( -641.787, -1.31421 )
 boidType = null
-min_speed = 50
 max_speed = 150
 neighbour_min_distance = 10
 group_detection_distance = 40
 group_follow = 0.5
 group_vortex = 0.5
-alone_vortex = 0.8
-alone_wander = 0.2
+
+[node name="Boid9" parent="." index="12" instance=ExtResource( 5 )]
+
+position = Vector2( -568.299, 332.722 )
+boidType = null
+max_speed = 150
+neighbour_min_distance = 10
+group_detection_distance = 40
+group_follow = 0.5
+group_vortex = 0.5
+
+[node name="Boid10" parent="." index="13" instance=ExtResource( 5 )]
+
+position = Vector2( -326.122, 516.442 )
+boidType = null
+max_speed = 150
+neighbour_min_distance = 10
+group_detection_distance = 40
+group_follow = 0.5
+group_vortex = 0.5
+
+[node name="Boid11" parent="." index="14" instance=ExtResource( 5 )]
+
+position = Vector2( 27.9564, 569.888 )
+boidType = null
+max_speed = 150
+neighbour_min_distance = 10
+group_detection_distance = 40
+group_follow = 0.5
+group_vortex = 0.5
+
+[node name="Boid12" parent="." index="15" instance=ExtResource( 5 )]
+
+position = Vector2( 388.716, 516.442 )
+boidType = null
+max_speed = 150
+neighbour_min_distance = 10
+group_detection_distance = 40
+group_follow = 0.5
+group_vortex = 0.5
 
 

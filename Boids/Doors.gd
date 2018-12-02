@@ -1,6 +1,7 @@
 extends Area2D
 
-var count = 0
+enum TYPE { RED, YELLOW, BLUE }
+export(TYPE) var doorType = TYPE.RED
 
 var orientation = Vector2(0,0)
 
@@ -16,13 +17,6 @@ func _process(delta):
 	for body in overlapping_bodies:
 		if not body.is_in_group("boids"):
 			return
-		if not body.type = :
+		if not body.boidType == doorType:
 			return
-		group_position += body.position
-		average_heading += body.heading
-		speed += body.speed
-		count += 1
-	if count > 0:
-		group_position = group_position / count
-		average_heading = average_heading / count
-		speed = speed / count
+		body.

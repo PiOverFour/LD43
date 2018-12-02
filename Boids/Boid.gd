@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
-enum TYPE { TARGET, GROUP, ALONE, ATTRACTED, REPULSED }
-export(TYPE) var boidType = TYPE.ALONE
+enum TYPE { RED, YELLOW, BLUE }
+export(TYPE) var boidType = TYPE.RED
 
 var speed
 var previous_speed
@@ -49,6 +49,8 @@ var v_wander = Vector2()
 var lock = false
 
 var animation_speed
+
+var repulse_direction = Vector2()
 
 onready var timer = $Timer_State
 onready var avoid_detection = $avoid_detection
