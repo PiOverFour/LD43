@@ -28,7 +28,7 @@ export(float) var target_follow_group = 0.3
 export(float) var target_vortex = 0
 
 export(float) var group_follow = 1
-export(float) var group_vortex = 0.05
+export(float) var group_vortex = 0
 
 export(float) var alone_vortex = 0.2
 export(float) var alone_wander = 0.3

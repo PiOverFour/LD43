@@ -37,7 +37,7 @@ target_follow = 0.7
 target_follow_group = 0.3
 target_vortex = 0
 group_follow = 1
-group_vortex = 0.05
+group_vortex = 0
 alone_vortex = 0.2
 alone_wander = 0.3
 
