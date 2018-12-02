@@ -1,6 +1,13 @@
 extends Node
 
-var boid_node = preload("res://Boids/boid.tscn")
+enum BOID_TYPES { RED, YELLOW, BLUE }
+const boid_nodes = {
+	RED: preload("res://Boids/Red.tscn"),
+	YELLOW: preload("res://Boids/Yellow.tscn"),
+	BLUE: preload("res://Boids/Blue.tscn"),
+	}
+
+#var boid_node = preload("res://Boids/boid.tscn")
 var boid_radius = 800
 onready var timer = Timer.new()
 
@@ -18,7 +25,8 @@ func _ready():
 
 func add_boid():
 #	print("Adding boid...")
-	var boid_instance = boid_node.instance()
+	var boid_type = randi() % 3
+	var boid_instance = boid_nodes[boid_type].instance()
 	var angle = rand_range(-PI, PI)
 	boid_instance.position = Vector2(cos(angle), sin(angle))*boid_radius
 #	get_tree().root.add_child(boid_instance)
