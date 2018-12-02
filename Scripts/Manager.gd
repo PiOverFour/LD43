@@ -38,12 +38,20 @@ func update_life_bars():
 	get_node("/root/Main/UI/PC/HC/VC/SACRIFICED").value = 100 - 100 * sacrificed_boids / BOID_LIVES
 
 func game_over():
-	get_node("/root/Main/UI/GameOver").visible = true
-	get_node("/root/Main/UI/AnimationPlayer").play("GameOver")
+	pass
+#	get_node("/root/Main/UI/GameOver").visible = true
+#	get_node("/root/Main/UI/AnimationPlayer").play("GameOver")
 
 func load_level(level):
+	# Reset sacrifices
 	sacrificed_boids = 0
 	update_life_bars()
+	
+	# Remove level if present
+	for c in get_node("/root/Main").get_children():
+		if c.name.begins_with("Level"):
+			get_node("/root/Main").remove_child(c)
+			c.queue_free()
 	
 	var level_scene = LEVELS[level].instance()
 	get_node("/root/Main").add_child(level_scene)
