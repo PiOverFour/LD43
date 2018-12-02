@@ -8,7 +8,7 @@ func _ready():
 	# Set up boid instancing
 	timer.wait_time = 1
 	timer.connect("timeout", self, "add_boid")
-	timer.autostart = true
+	timer.autostart = false
 	timer.process_mode = timer.TIMER_PROCESS_PHYSICS
 #	timer.start()
 	add_child(timer)

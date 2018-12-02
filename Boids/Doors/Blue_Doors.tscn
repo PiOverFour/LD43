@@ -4,10 +4,12 @@
 
 [node name="Blue_Doors" index="0" instance=ExtResource( 1 )]
 
-doorType = 2
+collision_layer = 8
+collision_mask = 8
+_sections_unfolded = [ "Collision", "Transform" ]
 
-[node name="Polygon2D" parent="group_distance" index="0"]
+[node name="Polygon2D" parent="boid_detector" index="0"]
 
-color = Color( 0.078125, 0, 1, 0.259686 )
+color = Color( 0.148438, 0, 1, 0.259686 )
 
 

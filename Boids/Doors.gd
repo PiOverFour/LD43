@@ -19,7 +19,13 @@ func _process(delta):
 	for body in overlapping_bodies:
 		if not body.is_in_group("boids"):
 			return
+		
+		print("door")
+		print(body.boidType)
+		print(doorType)
+		
 		if body.boidType != doorType:
 			return
+		
 		body.v_door_repulse = orientation * cos((body.position - position).angle_to(orientation))
 		body.boidState = STATE.REPULSED

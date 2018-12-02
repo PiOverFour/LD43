@@ -47,11 +47,11 @@ var v_flee = Vector2()
 var v_wander = Vector2()
 
 var v_door_repulse = Vector2()
+var totem_position = Vector2()
 
 var lock = false
 
 var animation_speed
-
 
 
 onready var timer = $Timer_State
@@ -99,8 +99,10 @@ func _process(delta):
 		else:
 			v_avoid = Vector2(0,0)
 		
-#		print(group_detection.count)
-		if boidState != STATE.REPULSED and boidState != STATE.ATTRACTED:
+		
+#		print("set state")
+#		print(boidState)
+		if boidState != STATE.ATTRACTED:
 			# set state
 			if v_target.length() < target_detection_distance:
 				boidState = STATE.TARGET
@@ -109,8 +111,8 @@ func _process(delta):
 			else:
 				boidState = STATE.ALONE
 		
-		print(boidState)
-	
+#		print(boidState)
+		
 		update_state(boidState)
 	
 	
@@ -155,7 +157,9 @@ func update_state(boidState):
 			heading = v_door_repulse.normalized()
 			timer.wait_time = 1
 		ATTRACTED:
-			pass
+			print("ATTRACTED")
+			speed = min_speed * max_speed / 2
+			heading = totem_position - position
 	
 	
 	timer.start()
@@ -166,6 +170,7 @@ func _on_Timer_State_timeout():
 	timer.wait_time = state_time
 	boidState = STATE.ALONE
 	lock = false
+
 
 func _on_Timer_Sound_timeout():
 	$Bubble.play()
