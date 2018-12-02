@@ -3,6 +3,7 @@ extends Node
 const LEVELS = {
 	"Level1": preload("res://Levels/Level1.tscn"),
 	"Level2": preload("res://Levels/Level2.tscn"),
+	"End": preload("res://Levels/End.tscn"),
 	}
 
 enum BOID_TYPES { RED, YELLOW, BLUE }
@@ -59,11 +60,12 @@ func load_level(level):
 	get_node("/root/Main").move_child(level_scene, 0)
 	
 	# Setup camera
-	var bounds = level_scene.bounds
-	get_node("/root/Main/Player/Camera2D").limit_left = -bounds
-	get_node("/root/Main/Player/Camera2D").limit_top = -bounds
-	get_node("/root/Main/Player/Camera2D").limit_right = bounds
-	get_node("/root/Main/Player/Camera2D").limit_bottom = bounds
+	if "bounds" in level_scene:
+		var bounds = level_scene.bounds
+		get_node("/root/Main/Player/Camera2D").limit_left = -bounds
+		get_node("/root/Main/Player/Camera2D").limit_top = -bounds
+		get_node("/root/Main/Player/Camera2D").limit_right = bounds
+		get_node("/root/Main/Player/Camera2D").limit_bottom = bounds
 #############
 #var agents = []
 #var target
