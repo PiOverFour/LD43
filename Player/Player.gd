@@ -14,6 +14,9 @@ func _process(delta):
 			direction.y = 0
 		direction = direction.normalized()
 		move_and_slide(VELOCITY * direction)
+		var child_rot = rad2deg(atan2(direction.y, direction.x)) 
+		$Polygon2D.rotation_degrees = child_rot
+		$CollisionShape2D.rotation_degrees = child_rot
 
 #func _unhandled_key_input(event):
 #    if event is InputEventKey:
