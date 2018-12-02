@@ -46,11 +46,13 @@ var v_vortex = Vector2()
 var v_flee = Vector2()
 var v_wander = Vector2()
 
+var v_door_repulse = Vector2()
+
 var lock = false
 
 var animation_speed
 
-var repulse_direction = Vector2()
+
 
 onready var timer = $Timer_State
 onready var avoid_detection = $avoid_detection
@@ -78,8 +80,6 @@ func _ready():
 
 func _process(delta):
 	
-	
-	
 	if !lock:
 		lock = true
 		
@@ -97,20 +97,20 @@ func _process(delta):
 			v_avoid = Vector2(0,0)
 		
 #		print(group_detection.count)
+		if boidState != STATE.REPULSED or boidState != STATE.ATTRACTED:
+			# set state
+			if v_target.length() < target_detection_distance:
+				boidState = STATE.TARGET
+			elif group_detection.count > 1:
+				boidState = STATE.GROUP
+			else:
+				boidState = STATE.ALONE
 		
-		# set state
-		if v_target.length() < target_detection_distance:
-			boidState = STATE.TARGET
-		elif group_detection.count > 1:
-			boidState = STATE.GROUP
-		else:
-			boidState = STATE.ALONE
-		
-#		print(boidState)
-		timer.start()
+		print(boidState)
 	
 		update_state(boidState)
-		
+	
+	
 	heading = previous_heading * 0.5 + 0.5 * heading
 	speed = previous_speed * 0.8 + speed * 0.2
 	speed = clamp(speed, min_speed, max_speed)
@@ -146,6 +146,15 @@ func update_state(boidState):
 #			print("alone")
 			speed = min_speed
 			heading = v_vortex.normalized() * alone_vortex + v_wander.normalized() * alone_wander
+		REPULSED:
+			print("REPULSED")
+			speed = min_speed * max_speed / 2
+			heading = v_door_repulse.normalized()
+		ATTRACTED:
+			pass
+	
+	
+	timer.start()
 
 
 func _on_Timer_State_timeout():
