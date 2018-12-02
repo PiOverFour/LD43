@@ -1,0 +1,178 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/Level_manager.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Circle.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/L2_concept11.jpg" type="Texture" id=3]
+[ext_resource path="res://Scripts/Delete_detector.gd" type="Script" id=4]
+[ext_resource path="res://Assets/Totem/Red_Totem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Totem/Blue_Totem.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Totem/Yellow_Totem.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Doors/Blue_Doors.tscn" type="PackedScene" id=8]
+
+[sub_resource type="CircleShape2D" id=1]
+
+custom_solver_bias = 0.0
+radius = 62.0075
+
+[node name="Level2" type="Node2D" index="0"]
+
+script = ExtResource( 1 )
+_sections_unfolded = [ "Visibility" ]
+boidArray = [ "YELLOW", "BLUE", "RED" ]
+totemArray = [ NodePath("Red_Totem"), NodePath("Blue_Totem"), NodePath("Yellow_Totem") ]
+
+[node name="Border" parent="." index="0" instance=ExtResource( 2 )]
+
+polygon = PoolVector2Array( 900, 0, 898.916, 44.1609, 895.666, 88.2154, 890.259, 132.057, 882.707, 175.581, 873.028, 218.682, 861.246, 261.256, 847.39, 303.201, 831.492, 344.415, 813.59, 384.8, 793.729, 424.257, 771.956, 462.692, 748.323, 500.013, 722.887, 536.129, 695.709, 570.954, 666.856, 604.403, 636.396, 636.396, 604.403, 666.856, 570.954, 695.709, 536.129, 722.887, 500.013, 748.323, 462.692, 771.956, 424.257, 793.729, 384.8, 813.59, 344.415, 831.492, 303.201, 847.39, 261.256, 861.246, 218.682, 873.028, 175.581, 882.707, 132.057, 890.259, 88.2154, 895.666, 44.1609, 898.916, 5.51091e-14, 900, -44.1609, 898.916, -88.2154, 895.666, -132.057, 890.259, -175.581, 882.707, -218.682, 873.028, -261.256, 861.246, -303.201, 847.39, -344.415, 831.492, -384.8, 813.59, -424.257, 793.729, -462.692, 771.956, -500.013, 748.323, -536.129, 722.887, -570.954, 695.709, -604.403, 666.856, -636.396, 636.396, -666.856, 604.403, -695.709, 570.954, -722.887, 536.129, -748.323, 500.013, -771.956, 462.692, -793.729, 424.257, -813.59, 384.8, -831.492, 344.415, -847.39, 303.201, -861.246, 261.256, -873.028, 218.682, -882.707, 175.581, -890.259, 132.057, -895.666, 88.2154, -898.916, 44.1609, -900, 1.10218e-13, -898.916, -44.1609, -895.666, -88.2154, -890.259, -132.057, -882.707, -175.581, -873.028, -218.682, -861.246, -261.256, -847.39, -303.201, -831.492, -344.415, -813.59, -384.8, -793.729, -424.257, -771.956, -462.692, -748.323, -500.013, -722.887, -536.129, -695.709, -570.954, -666.856, -604.403, -636.396, -636.396, -604.403, -666.856, -570.954, -695.709, -536.129, -722.887, -500.013, -748.323, -462.692, -771.956, -424.257, -793.729, -384.8, -813.59, -344.415, -831.492, -303.201, -847.39, -261.256, -861.246, -218.682, -873.028, -175.581, -882.707, -132.057, -890.259, -88.2154, -895.666, -44.1609, -898.916, -1.65327e-13, -900, 44.1609, -898.916, 88.2154, -895.666, 132.057, -890.259, 175.581, -882.707, 218.682, -873.028, 261.256, -861.246, 303.201, -847.39, 344.415, -831.492, 384.8, -813.59, 424.257, -793.729, 462.692, -771.956, 500.013, -748.323, 536.129, -722.887, 570.954, -695.709, 604.403, -666.856, 636.396, -636.396, 666.856, -604.403, 695.709, -570.954, 722.887, -536.129, 748.323, -500.013, 771.956, -462.692, 793.729, -424.257, 813.59, -384.8, 831.492, -344.415, 847.39, -303.201, 861.246, -261.256, 873.028, -218.682, 882.707, -175.581, 890.259, -132.057, 895.666, -88.2154, 898.916, -44.1609 )
+color = Color( 0.527344, 0.527344, 0.527344, 1 )
+radius = 500
+vertices = 32
+
+[node name="L2_concept11" type="Sprite" parent="." index="1"]
+
+position = Vector2( 0, -100.417 )
+scale = Vector2( 3.25, 3.25 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="Pit" type="Area2D" parent="." index="2"]
+
+editor/display_folded = true
+input_pickable = true
+gravity_vec = Vector2( 0, 1 )
+gravity = 98.0
+linear_damp = 0.1
+angular_damp = 1.0
+audio_bus_override = false
+audio_bus_name = "Master"
+script = ExtResource( 4 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pit" index="0"]
+
+shape = SubResource( 1 )
+
+[node name="PitPolygon" parent="Pit" index="1" instance=ExtResource( 2 )]
+
+polygon = PoolVector2Array( 70, 0, 68.655, 13.6563, 64.6716, 26.7878, 58.2029, 38.8899, 49.4975, 49.4975, 38.8899, 58.2029, 26.7878, 64.6716, 13.6563, 68.655, 4.28626e-15, 70, -13.6563, 68.655, -26.7878, 64.6716, -38.8899, 58.2029, -49.4975, 49.4975, -58.2029, 38.8899, -64.6716, 26.7878, -68.655, 13.6563, -70, 8.57253e-15, -68.655, -13.6563, -64.6716, -26.7878, -58.2029, -38.8899, -49.4975, -49.4975, -38.8899, -58.2029, -26.7878, -64.6716, -13.6563, -68.655, -1.28588e-14, -70, 13.6563, -68.655, 26.7878, -64.6716, 38.8899, -58.2029, 49.4975, -49.4975, 58.2029, -38.8899, 64.6716, -26.7878, 68.655, -13.6563 )
+color = Color( 0, 0, 0, 1 )
+radius = 500
+vertices = 32
+
+[node name="Obstacle" type="StaticBody2D" parent="." index="3"]
+
+position = Vector2( -13.6324, -22.7207 )
+scale = Vector2( 2.2, 2.2 )
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacle" index="0"]
+
+position = Vector2( -3.03669, 217.275 )
+build_mode = 0
+polygon = PoolVector2Array( -5.49011, 378.048, 15.0933, 378.606, 15.0508, 270.964, -5.15335, 270.964 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Obstacle" index="1"]
+
+position = Vector2( -1.67419, -80.5427 )
+build_mode = 0
+polygon = PoolVector2Array( -4.40218, 419.052, 14.6887, 418.143, 15.327, 284.448, -4.27406, 284.75 )
+
+[node name="CollisionPolygon2D9" type="CollisionPolygon2D" parent="Obstacle" index="2"]
+
+position = Vector2( 73.9677, -132.191 )
+rotation = 0.50703
+build_mode = 0
+polygon = PoolVector2Array( -7.80989, 474.665, 13.5583, 474.754, 17.3152, 279.775, -4.24193, 280.711 )
+
+[node name="CollisionPolygon2D10" type="CollisionPolygon2D" parent="Obstacle" index="3"]
+
+position = Vector2( -85.4086, -119.884 )
+rotation = -0.545751
+build_mode = 0
+polygon = PoolVector2Array( -7.80989, 474.665, 13.5583, 474.754, 17.3152, 279.775, -4.24193, 280.711 )
+
+[node name="CollisionPolygon2D11" type="CollisionPolygon2D" parent="Obstacle" index="4"]
+
+position = Vector2( -62.858, 151.066 )
+rotation = -2.63198
+build_mode = 0
+polygon = PoolVector2Array( -7.80989, 474.665, 13.5583, 474.754, 17.3152, 279.775, -4.24193, 280.711 )
+
+[node name="CollisionPolygon2D12" type="CollisionPolygon2D" parent="Obstacle" index="5"]
+
+position = Vector2( 98.8532, 136.625 )
+rotation = -3.69437
+build_mode = 0
+polygon = PoolVector2Array( -7.80989, 474.665, 13.5583, 474.754, 17.3152, 279.775, -4.24193, 280.711 )
+
+[node name="CollisionPolygon2D6" type="CollisionPolygon2D" parent="Obstacle" index="6"]
+
+position = Vector2( 167.03, 4.82242 )
+rotation = 1.57487
+build_mode = 0
+polygon = PoolVector2Array( -4.36137, 479.037, 15.6384, 478.956, 15.327, 284.448, -4.27406, 284.75 )
+
+[node name="CollisionPolygon2D7" type="CollisionPolygon2D" parent="Obstacle" index="7"]
+
+position = Vector2( 608.392, 6.05912 )
+rotation = 1.57487
+build_mode = 0
+polygon = PoolVector2Array( -4.36137, 479.037, 15.6384, 478.956, 15.327, 284.448, -4.27406, 284.75 )
+
+[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Obstacle" index="8"]
+
+position = Vector2( 70.8323, 30.4657 )
+rotation = 2.07454
+build_mode = 0
+polygon = PoolVector2Array( -6.77171, 418.49, 13.7957, 418.991, 16.3845, 260.81, -2.58778, 261.072 )
+
+[node name="CollisionPolygon2D8" type="CollisionPolygon2D" parent="Obstacle" index="9"]
+
+position = Vector2( -180.51, -116.186 )
+rotation = 2.07454
+build_mode = 0
+polygon = PoolVector2Array( -6.77171, 418.49, 13.7957, 418.991, 16.3845, 260.81, -2.58778, 261.072 )
+
+[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Obstacle" index="10"]
+
+position = Vector2( -53.107, 49.9803 )
+rotation = 4.19285
+build_mode = 0
+polygon = PoolVector2Array( -5.07136, 424.089, 15.0277, 422.825, 14.8408, 264.494, -5.39415, 264.038 )
+
+[node name="CollisionPolygon2D5" type="CollisionPolygon2D" parent="Obstacle" index="11"]
+
+position = Vector2( 199.733, -93.8667 )
+rotation = 4.19285
+build_mode = 0
+polygon = PoolVector2Array( -5.07136, 424.089, 15.0277, 422.825, 14.8408, 264.494, -5.39415, 264.038 )
+
+[node name="Red_Totem" parent="." index="4" instance=ExtResource( 5 )]
+
+position = Vector2( 1205.29, 705.345 )
+scale = Vector2( 2, 2 )
+valid_number = 1
+
+[node name="Blue_Totem" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( -1202.45, 705.298 )
+scale = Vector2( 2, 2 )
+valid_number = 1
+
+[node name="Yellow_Totem" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( -2.33423, -1384.89 )
+scale = Vector2( 2, 2 )
+
+[node name="Blue_Doors" parent="." index="7" instance=ExtResource( 8 )]
+
+position = Vector2( -2.26215, 921.088 )
+rotation = -1.5708
+scale = Vector2( 1, 0.7 )
+
+

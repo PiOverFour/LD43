@@ -2,7 +2,7 @@ extends Node
 
 const LEVELS = {
 	"Level1": preload("res://Levels/Level1.tscn"),
-	"Level2": 1,
+	"Level2": preload("res://Levels/Level2.tscn"),
 	}
 
 enum BOID_TYPES { RED, YELLOW, BLUE }
@@ -24,6 +24,7 @@ var BOID_LIVES = 10
 
 
 func _ready():
+	randomize()
 	load_level("Level1")
 	update_life_bars()
 #	for i in range(50):
@@ -37,12 +38,20 @@ func update_life_bars():
 	get_node("/root/Main/UI/PC/HC/VC/SACRIFICED").value = 100 - 100 * sacrificed_boids / BOID_LIVES
 
 func game_over():
-	get_node("/root/Main/UI/GameOver").visible = true
-	get_node("/root/Main/UI/AnimationPlayer").play("GameOver")
+	pass
+#	get_node("/root/Main/UI/GameOver").visible = true
+#	get_node("/root/Main/UI/AnimationPlayer").play("GameOver")
 
 func load_level(level):
+	# Reset sacrifices
 	sacrificed_boids = 0
 	update_life_bars()
+	
+	# Remove level if present
+	for c in get_node("/root/Main").get_children():
+		if c.name.begins_with("Level"):
+			get_node("/root/Main").remove_child(c)
+			c.queue_free()
 	
 	var level_scene = LEVELS[level].instance()
 	get_node("/root/Main").add_child(level_scene)
