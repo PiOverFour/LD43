@@ -10,6 +10,7 @@
 ] instance=ExtResource( 1 )]
 
 position = Vector2( -137.263, 326.567 )
+VELOCITY = Vector2( 300, 300 )
 
 [node name="Camera2D" type="Camera2D" parent="Player" index="2"]
 
