@@ -168,7 +168,6 @@ func update_state(boidState):
 func _on_Timer_State_timeout():
 	timer.stop()
 	timer.wait_time = state_time
-	boidState = STATE.ALONE
 	lock = false
 
 

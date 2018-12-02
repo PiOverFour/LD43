@@ -20,10 +20,6 @@ func _process(delta):
 		if not body.is_in_group("boids"):
 			return
 		
-		print("door")
-		print(body.boidType)
-		print(doorType)
-		
 		if body.boidType != doorType:
 			return
 		

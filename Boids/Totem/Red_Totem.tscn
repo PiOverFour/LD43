@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Boids/Totem/Totem.tscn" type="PackedScene" id=1]
+
+[node name="Red_Totem" index="0" instance=ExtResource( 1 )]
+
+collision_layer = 2
+collision_mask = 2
+totem_type = 0
+
+
