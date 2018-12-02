@@ -6,4 +6,8 @@
 
 doorType = 2
 
+[node name="Polygon2D" parent="group_distance" index="0"]
+
+color = Color( 0.078125, 0, 1, 0.259686 )
+
 

@@ -1,11 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Main.gd" type="Script" id=1]
 [ext_resource path="res://Levels/Level1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Boids/doors.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Boids/boid.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Boids/boid.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Boids/Doors/Blue_Doors.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Boids/Doors/Yellow_Doors.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Boids/Doors/Red_Doors.tscn" type="PackedScene" id=8]
 
 [node name="Main" type="Node2D" index="0"]
 
@@ -91,14 +93,21 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="UI" parent="." index="3" instance=ExtResource( 4 )]
 
-[node name="Doors" parent="." index="4" instance=ExtResource( 5 )]
-
-position = Vector2( 29.6266, 396.189 )
-doorType = 0
-
-[node name="Boid" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Boid" parent="." index="4" instance=ExtResource( 5 )]
 
 position = Vector2( 66.3705, 508.091 )
 boidType = 0
+
+[node name="Blue_Doors" parent="." index="5" instance=ExtResource( 6 )]
+
+position = Vector2( 37.9775, 426.253 )
+
+[node name="Yellow_Doors" parent="." index="6" instance=ExtResource( 7 )]
+
+position = Vector2( 21.2756, 336.063 )
+
+[node name="Red_Doors" parent="." index="7" instance=ExtResource( 8 )]
+
+position = Vector2( -8.78766, 239.192 )
 
 
