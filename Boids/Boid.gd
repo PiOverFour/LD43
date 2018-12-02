@@ -58,9 +58,11 @@ onready var timer = $Timer_State
 onready var avoid_detection = $avoid_detection
 onready var group_detection = $group_detector
 
-onready var player = get_node("../Player")
+onready var player = get_node("../../Player")
 
 onready var timer_sound = $Timer_Sound
+
+onready var animation_player = $AnimatedSprite
 
 func _ready():
 	
@@ -152,12 +154,12 @@ func update_state(boidState):
 			speed = min_speed
 			heading = v_vortex.normalized() * alone_vortex + v_wander.normalized() * alone_wander
 		REPULSED:
-			print("REPULSED")
+#			print("REPULSED")
 			speed = min_speed * max_speed / 2
 			heading = v_door_repulse.normalized()
 			timer.wait_time = 1
 		ATTRACTED:
-			print("ATTRACTED")
+#			print("ATTRACTED")
 			speed = min_speed * max_speed / 2
 			heading = totem_position - position
 	
@@ -174,3 +176,18 @@ func _on_Timer_State_timeout():
 func _on_Timer_Sound_timeout():
 	$Bubble.play()
 	timer_sound.wait_time = rand_range(1, 10)
+
+func delete():
+	animation_player.play("default")
+	
+
+func _on_AnimatedSprite_animation_finished():
+	# Delete this boid
+	var parent = get_parent()
+	if parent != null:
+		var type = boidType
+		print('incrementing type ', type)
+		Manager.sacrificed_boids += 1
+		Manager.update_life_bars()
+		queue_free()
+	pass # replace with function body

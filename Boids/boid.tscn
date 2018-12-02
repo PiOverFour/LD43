@@ -1,17 +1,25 @@
 [gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Boids/Boid.gd" type="Script" id=1]
-[ext_resource path="res://icon.png" type="Texture" id=2]
-[ext_resource path="res://Boids/bubble.wav" type="AudioStream" id=3]
-[ext_resource path="res://Boids/Avoid_detection.gd" type="Script" id=4]
-[ext_resource path="res://Boids/Group_detector.gd" type="Script" id=5]
+[ext_resource path="res://Boids/bubble.wav" type="AudioStream" id=2]
+[ext_resource path="res://Boids/Avoid_detection.gd" type="Script" id=3]
+[ext_resource path="res://Boids/Group_detector.gd" type="Script" id=4]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="SpriteFrames" id=1]
+
+animations = [ {
+"frames": [  ],
+"loop": true,
+"name": "default",
+"speed": 5.0
+} ]
+
+[sub_resource type="CircleShape2D" id=2]
 
 custom_solver_bias = 0.0
 radius = 10.0
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 
 custom_solver_bias = 0.0
 radius = 10.0
@@ -43,13 +51,14 @@ group_vortex = 0.5
 alone_vortex = 0.8
 alone_wander = 0.2
 
-[node name="Sprite" type="Sprite" parent="." index="0"]
+[node name="AnimatedSprite" type="AnimatedSprite" parent="." index="0"]
 
-texture = ExtResource( 2 )
+frames = SubResource( 1 )
+animation = "default"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." index="1"]
 
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="Timer_State" type="Timer" parent="." index="2"]
 
@@ -67,7 +76,7 @@ autostart = true
 
 [node name="Bubble" type="AudioStreamPlayer2D" parent="." index="4"]
 
-stream = ExtResource( 3 )
+stream = ExtResource( 2 )
 volume_db = 0.0
 pitch_scale = 1.0
 autoplay = false
@@ -94,12 +103,12 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 4 )
+script = ExtResource( 3 )
 
 [node name="neighbour_min_distance" type="CollisionShape2D" parent="avoid_detection" index="0"]
 
 scale = Vector2( 20, 20 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Polygon2D" type="Polygon2D" parent="avoid_detection/neighbour_min_distance" index="0"]
@@ -128,12 +137,12 @@ linear_damp = 0.1
 angular_damp = 1.0
 audio_bus_override = false
 audio_bus_name = "Master"
-script = ExtResource( 5 )
+script = ExtResource( 4 )
 
 [node name="group_distance" type="CollisionShape2D" parent="group_detector" index="0"]
 
 scale = Vector2( 20, 20 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Polygon2D" type="Polygon2D" parent="group_detector/group_distance" index="0"]
