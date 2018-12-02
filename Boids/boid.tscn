@@ -24,7 +24,7 @@ radius = 10.0
 custom_solver_bias = 0.0
 radius = 10.0
 
-[node name="Boid" type="KinematicBody2D" groups=[
+[node name="Boid" type="KinematicBody2D" index="0" groups=[
 "boids",
 ]]
 
@@ -161,6 +161,8 @@ texture_scale = Vector2( 1, 1 )
 texture_rotation_degrees = 0.0
 invert_enable = false
 invert_border = 100.0
+
+[connection signal="animation_finished" from="AnimatedSprite" to="." method="_on_AnimatedSprite_animation_finished"]
 
 [connection signal="timeout" from="Timer_State" to="." method="_on_Timer_State_timeout"]
 

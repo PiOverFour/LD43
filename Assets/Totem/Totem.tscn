@@ -25,9 +25,11 @@ audio_bus_name = "Master"
 script = ExtResource( 1 )
 _sections_unfolded = [ "Collision", "Transform" ]
 totem_type = null
+valid_number = 1
 
 [node name="boid_detector" type="CollisionShape2D" parent="." index="0"]
 
+editor/display_folded = true
 scale = Vector2( 20, 20 )
 shape = SubResource( 1 )
 _sections_unfolded = [ "Transform" ]
@@ -40,7 +42,39 @@ script = null
 
 [node name="Sprite" type="Sprite" parent="." index="1"]
 
+texture = ExtResource( 3 )
+
+[node name="petale" type="Node2D" parent="." index="2"]
+
+[node name="1" type="Sprite" parent="petale" index="0"]
+
 visible = false
+position = Vector2( -145.302, -40.6125 )
+texture = ExtResource( 3 )
+_sections_unfolded = [ "Offset", "Visibility" ]
+
+[node name="2" type="Sprite" parent="petale" index="1"]
+
+visible = false
+position = Vector2( -90.25, -113.715 )
+texture = ExtResource( 3 )
+
+[node name="3" type="Sprite" parent="petale" index="2"]
+
+visible = false
+position = Vector2( 3.05176e-05, -151.62 )
+texture = ExtResource( 3 )
+
+[node name="4" type="Sprite" parent="petale" index="3"]
+
+visible = false
+position = Vector2( 74.9075, -125.448 )
+texture = ExtResource( 3 )
+
+[node name="5" type="Sprite" parent="petale" index="4"]
+
+visible = false
+position = Vector2( 153.425, -63.175 )
 texture = ExtResource( 3 )
 
 

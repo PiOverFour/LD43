@@ -10,6 +10,8 @@ export(int) var valid_number = 1
 
 var valid = false
 
+onready var petale = $petale
+
 func _process(delta):
 
 	var overlapping_bodies = get_overlapping_bodies()
@@ -25,6 +27,7 @@ func _process(delta):
 		
 		if body.boidState != STATE.ATTRACTED:
 			count += 1
+			
 		
 		body.totem_position = position
 		body.boidState = STATE.ATTRACTED
