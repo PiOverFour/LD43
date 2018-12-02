@@ -27,7 +27,7 @@ func _process(delta):
 		
 		if body.boidState != STATE.ATTRACTED:
 			count += 1
-			
+			petale.get_child(count-1).visible = true
 		
 		body.totem_position = position
 		body.boidState = STATE.ATTRACTED

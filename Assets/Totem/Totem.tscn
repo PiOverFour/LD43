@@ -77,4 +77,40 @@ visible = false
 position = Vector2( 153.425, -63.175 )
 texture = ExtResource( 3 )
 
+[node name="6" type="Sprite" parent="petale" index="5"]
+
+visible = false
+position = Vector2( 153.425, -63.175 )
+texture = ExtResource( 3 )
+
+[node name="7" type="Sprite" parent="petale" index="6"]
+
+visible = false
+position = Vector2( 153.425, -63.175 )
+texture = ExtResource( 3 )
+
+[node name="8" type="Sprite" parent="petale" index="7"]
+
+visible = false
+position = Vector2( 153.425, -63.175 )
+texture = ExtResource( 3 )
+
+[node name="9" type="Sprite" parent="petale" index="8"]
+
+visible = false
+position = Vector2( 153.425, -63.175 )
+texture = ExtResource( 3 )
+
+[node name="10" type="Sprite" parent="petale" index="9"]
+
+visible = false
+position = Vector2( 153.425, -63.175 )
+texture = ExtResource( 3 )
+
+[node name="11" type="Sprite" parent="petale" index="10"]
+
+visible = false
+position = Vector2( 153.425, -63.175 )
+texture = ExtResource( 3 )
+
 
