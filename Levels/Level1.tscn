@@ -4,8 +4,10 @@
 [ext_resource path="res://Assets/Circle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/L1_concept12.jpg" type="Texture" id=3]
 [ext_resource path="res://Scripts/Delete_detector.gd" type="Script" id=4]
-[ext_resource path="res://Boids/Totem/Yellow_Totem.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Boids/Doors/Blue_Doors.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Totem/Yellow_Totem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Doors/Blue_Doors.tscn" type="PackedScene" id=6]
+
+
 
 [sub_resource type="CircleShape2D" id=1]
 

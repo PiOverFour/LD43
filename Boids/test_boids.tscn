@@ -7,12 +7,14 @@
 [ext_resource path="res://Boids/Red.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Boids/Yellow.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Boids/Blue.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Boids/Totem/Red_Totem.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Boids/Totem/Yellow_Totem.tscn" type="PackedScene" id=9]
-[ext_resource path="res://Boids/Totem/Blue_Totem.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Boids/Doors/Yellow_Doors_Repulse.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Boids/Doors/Blue_Doors_Repulse.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Boids/Doors/Red_Doors_Repulse.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Totem/Red_Totem.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Totem/Yellow_Totem.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Totem/Blue_Totem.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Doors/Yellow_Doors_Repulse.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Assets/Doors/Blue_Doors_Repulse.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Doors/Red_Doors_Repulse.tscn" type="PackedScene" id=13]
+
+
 
 [node name="Main" type="Node2D"]
 
