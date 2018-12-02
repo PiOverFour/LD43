@@ -70,6 +70,7 @@ polygon = PoolVector2Array( -5.13961, 377.781, 15.0933, 378.606, 14.8408, 264.49
 [node name="Yellow_Totem" parent="." index="4" instance=ExtResource( 5 )]
 
 position = Vector2( -2.33417, -832.417 )
+valid_number = 5
 
 [node name="Blue_Doors" parent="." index="5" instance=ExtResource( 6 )]
 

@@ -17,6 +17,8 @@ onready var timer = Timer.new()
 
 var boid_radius = 800
 
+var valid = false
+
 func _ready():
 	# Set up boid instancing
 	timer.wait_time = 2 # Spawn interval
@@ -28,13 +30,22 @@ func _ready():
 	
 	for i in range(0, boidArray.size()):
 		for j in range(1,6):
-			print(boidArray[i])
 			var path = boids[boidArray[i]] + str(j) + ".tscn"
-			print(path)
 			boid_nodes.push_back(load(path))
-	print(boid_nodes)
+#	print(boid_nodes)
 #	print(timer.is_stopped())
 
+
+func _process(delta):
+	valid = true
+	for totem in totemArray:
+		if get_node(totem).valid == false:
+			valid = false
+			
+	if valid:
+		# win
+		print("you win")
+		pass
 
 func add_boid():
 #	print("Adding boid...")
