@@ -1,33 +1,54 @@
 extends Node
 
-enum BOID_TYPES { RED, YELLOW, BLUE }
-	
-const boid_names = {
-	RED: "RED",
-	YELLOW: "YELLOW",
-	BLUE: "BLUE",
+const LEVELS = {
+	"Level1": preload("res://Levels/Level1.tscn"),
+	"Level2": 1,
 	}
 
-var sacrificed_boids = {
-	'RED': 0,
-	'YELLOW': 0,
-	'BLUE': 0,
-	}
+enum BOID_TYPES { RED, YELLOW, BLUE }
+	
+var sacrificed_boids = 0
+#const boid_names = {
+#	RED: "RED",
+#	YELLOW: "YELLOW",
+#	BLUE: "BLUE",
+#	}
+
+#var sacrificed_boids = {
+#	'RED': 0,
+#	'YELLOW': 0,
+#	'BLUE': 0,
+#	}
 	
 var BOID_LIVES = 10
 
 
 func _ready():
+	load_level("Level1")
 	update_life_bars()
 #	for i in range(50):
 #		call_deferred("add_boid")
 
 func update_life_bars():
-	for type in BOID_TYPES:
+	if sacrificed_boids == BOID_LIVES:
+		game_over()
+#	for type in BOID_TYPES:
 #		print(typeof(type))
-		get_node("/root/Main/UI/PC/HC/VC/" + type).value = 100 - 100 * sacrificed_boids[type] / BOID_LIVES
+	get_node("/root/Main/UI/PC/HC/VC/SACRIFICED").value = 100 - 100 * sacrificed_boids / BOID_LIVES
 
-#############"
+func game_over():
+	get_node("/root/Main/UI/GameOver").visible = true
+	get_node("/root/Main/UI/AnimationPlayer").play("GameOver")
+
+func load_level(level):
+	sacrificed_boids = 0
+	update_life_bars()
+	
+	var level_scene = LEVELS[level].instance()
+	get_node("/root/Main").add_child(level_scene)
+	get_node("/root/Main").move_child(level_scene, 0)
+
+#############
 #var agents = []
 #var target
 #var average_velocity = Vector2()
