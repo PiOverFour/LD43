@@ -4,14 +4,14 @@
 [ext_resource path="res://Assets/Circle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/niveau2.jpg" type="Texture" id=3]
 [ext_resource path="res://Assets/Pit.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Assets/Totem/Red_Totem.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Totem/Blue_Totem.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Totem/Yellow_Totem.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Totem/Blue_Totem.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Totem/Yellow_Totem.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Totem/Red_Totem.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Assets/Doors/Yellow_Doors.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Doors/Red_Doors.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Doors/Blue_Doors.tscn" type="PackedScene" id=10]
 
-[node name="Level2" type="Node2D"]
+[node name="Level2" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
@@ -20,6 +20,8 @@ totemArray = [ NodePath("Red_Totem"), NodePath("Blue_Totem"), NodePath("Yellow_T
 bounds = 1600
 boid_radius = 1200
 next_level = "End"
+win_time = 4
+dezoom = 4.5
 
 [node name="Border" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -135,22 +137,25 @@ rotation = 4.19285
 build_mode = 0
 polygon = PoolVector2Array( -5.07136, 424.089, 15.0277, 422.825, 14.8408, 264.494, -5.39415, 264.038 )
 
-[node name="Red_Totem" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Blue_Totem" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( 1205.29, 705.345 )
-scale = Vector2( 2, 2 )
-valid_number = 1
+position = Vector2( -1007.73, 634.208 )
+rotation = -2.11113
+scale = Vector2( 1.5, 1.5 )
+valid_number = 3
 
-[node name="Blue_Totem" parent="." index="5" instance=ExtResource( 6 )]
+[node name="Yellow_Totem" parent="." index="5" instance=ExtResource( 6 )]
 
-position = Vector2( -1202.45, 705.298 )
-scale = Vector2( 2, 2 )
-valid_number = 1
+position = Vector2( 9.29395, -1120.44 )
+scale = Vector2( 1.5, 1.5 )
+valid_number = 3
 
-[node name="Yellow_Totem" parent="." index="6" instance=ExtResource( 7 )]
+[node name="Red_Totem" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( -2.33423, -1384.89 )
-scale = Vector2( 2, 2 )
+position = Vector2( 1046.26, 601.609 )
+rotation = 2.11999
+scale = Vector2( 1.5, 1.5 )
+valid_number = 3
 
 [node name="Yellow_Doors" parent="." index="7" instance=ExtResource( 8 )]
 

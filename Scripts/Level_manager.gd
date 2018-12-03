@@ -24,6 +24,8 @@ export var win_time = 4
 onready var player = get_node("../Player")
 onready var camera = get_node("../Player/Camera2D")
 
+export(float) var dezoom = 2
+
 var valid = false
 var victory = false
 var t = 0
@@ -61,17 +63,20 @@ func _process(delta):
 	else:
 		if not victory:
 			victory = true
+			var pit = $Pit
+			
+			pit.queue_free()
 			win_timer.start()
 		# win
 		player.position = player.position.linear_interpolate(Vector2(0,0), min(t, 1))
-		camera.zoom = camera.zoom.linear_interpolate(Vector2(2.5,2.5), min(t, 1))
-		camera.limit_left = -3000
-		camera.limit_top = -3000
-		camera.limit_right = 3000
-		camera.limit_bottom = 3000
+		camera.zoom = camera.zoom.linear_interpolate(Vector2(2.7,2.7), min(t, 1))
+		camera.limit_left = -10000
+		camera.limit_top = -10000
+		camera.limit_right = 10000
+		camera.limit_bottom = 10000
 		camera.drag_margin_h_enabled = false
 		camera.drag_margin_v_enabled = false
-		t += delta / 2
+		t += delta / 5
 		
 
 func win():

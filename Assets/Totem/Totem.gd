@@ -13,26 +13,30 @@ var valid = false
 onready var petale = $petale
 onready var sprites = $sprites
 
-func _process(delta):
+func _ready():
+	sprites.get_child(1).visible = true
 
-	var overlapping_bodies = get_overlapping_bodies()
-	if not overlapping_bodies:
-		return
-	
-	for body in overlapping_bodies:
-		if not body.is_in_group("boids"):
+func _process(delta):
+	if not valid:
+		var overlapping_bodies = get_overlapping_bodies()
+		if not overlapping_bodies:
 			return
 		
-		if body.boidType != totem_type:
-			return
+		for body in overlapping_bodies:
+			if not body.is_in_group("boids"):
+				return
+			
+			if body.boidType != totem_type:
+				return
+			
+			if body.boidState != STATE.ATTRACTED:
+				count += 1
+	#			petale.get_child(count-1).visible = true
+				sprites.get_child(count-1).visible = false
+				sprites.get_child(count).visible = true
+			
+			body.totem_position = position
+			body.boidState = STATE.ATTRACTED
 		
-		if body.boidState != STATE.ATTRACTED:
-			count += 1
-			petale.get_child(count-1).visible = true
-			sprites.get_child(count).visible = true
-		
-		body.totem_position = position
-		body.boidState = STATE.ATTRACTED
-	
-	if count >= valid_number:
-		valid = true
+		if count >= valid_number:
+			valid = true

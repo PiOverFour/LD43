@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Totem/Yellow_Totem.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Assets/Doors/Blue_Doors.tscn" type="PackedScene" id=6]
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 boidArray = [ "YELLOW", "BLUE" ]
@@ -15,6 +15,8 @@ totemArray = [ NodePath("Yellow_Totem") ]
 bounds = 1000
 boid_radius = 800
 next_level = "Level2"
+win_time = 5
+dezoom = 2.7
 
 [node name="Border" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -71,8 +73,8 @@ polygon = PoolVector2Array( -5.13961, 377.781, 15.0933, 378.606, 14.8408, 264.49
 
 [node name="Yellow_Totem" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( -2.33417, -832.417 )
-valid_number = 5
+position = Vector2( 9.02618, -736.99 )
+valid_number = 3
 
 [node name="Blue_Doors" parent="." index="5" instance=ExtResource( 6 )]
 
