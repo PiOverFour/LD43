@@ -9,14 +9,14 @@
 [node name="Level0" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
-boidArray = [ "YELLOW", "BLUE" ]
+boidArray = [ "YELLOW" ]
 totemArray = [ NodePath("Yellow_Totem") ]
 bounds = 2000
 boid_radius = 800
 next_level = "Level1"
 spawn_interval = 3
 win_time = 5
-dezoom = 3.5
+dezoom = 3.0
 
 [node name="Border" parent="." index="0" instance=ExtResource( 2 )]
 

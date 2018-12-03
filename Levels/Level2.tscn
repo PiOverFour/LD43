@@ -11,7 +11,7 @@
 [ext_resource path="res://Assets/Doors/Red_Doors.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Doors/Blue_Doors.tscn" type="PackedScene" id=10]
 
-[node name="Level2" type="Node2D" index="0"]
+[node name="Level2" type="Node2D"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]

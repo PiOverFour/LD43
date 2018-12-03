@@ -16,7 +16,12 @@ totem_type = 1
 
 [node name="boid_detector" parent="." index="0"]
 
+position = Vector2( 2.72076, -35.3699 )
 scale = Vector2( 24.1485, 24.1485 )
+
+[node name="petale" parent="." index="1"]
+
+visible = false
 
 [node name="sprites" parent="." index="2"]
 

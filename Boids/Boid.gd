@@ -28,14 +28,14 @@ var close_bodies = Array()
 enum STATE { TARGET, GROUP, ALONE, ATTRACTED, REPULSED }
 export(STATE) var boidState = STATE.ALONE
 
-var target_follow = 0.7 
-var target_follow_group = 0.3
+var target_follow = 0.8
+var target_follow_group = 0.2
 var target_vortex = 0
 
-var group_follow = 0.8
+var group_follow = 0.4
 var group_vortex = 0.2
 
-var alone_vortex = 0.8
+var alone_vortex = 0.4
 var alone_wander = 0.2
 
 var v_target = Vector2()

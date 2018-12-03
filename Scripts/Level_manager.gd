@@ -70,15 +70,15 @@ func _process(delta):
 			pit.queue_free()
 			win_timer.start()
 		# win
-		player.position = player.position.linear_interpolate(Vector2(0,0), min(t, 1))
-		camera.zoom = camera.zoom.linear_interpolate(Vector2(2.7,2.7), min(t, 1))
+#		player.position = player.position.linear_interpolate(Vector2(0,0), min(t, 1))
+#		camera.zoom = camera.zoom.linear_interpolate(Vector2(dezoom,dezoom), min(t, 1))
 		camera.limit_left = -10000
 		camera.limit_top = -10000
 		camera.limit_right = 10000
 		camera.limit_bottom = 10000
 		camera.drag_margin_h_enabled = false
 		camera.drag_margin_v_enabled = false
-		t += delta / 5
+		t += delta / 10
 		
 
 func win():
