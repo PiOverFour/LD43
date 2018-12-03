@@ -10,3 +10,16 @@ func update_lives(sacrificed_boids, total_lives):
 
 func _on_ContinueButton_pressed():
 	Manager.continue_level()
+
+
+func _on_ExitButton_pressed():
+	get_tree().quit()
+
+
+func _on_PlayButton_pressed():
+	Manager.load_level("Level0")
+	get_node("/root/Main/Menu/AnimationPlayer").play_backwards("GameOver")
+
+
+func _on_Continue2Button_pressed():
+	get_node("/root/Main/Menu/AnimationPlayer").play_backwards("GameOver")

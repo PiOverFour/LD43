@@ -1,12 +1,15 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Level_manager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Circle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/niveau1.jpg" type="Texture" id=3]
-[ext_resource path="res://Assets/BG_1.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Pit.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Totem/Yellow_Totem.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Obstables_Level0.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/BG_v2.png" type="Texture" id=4]
+[ext_resource path="res://Assets/BG_CenterTurn.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/Rotator.gd" type="Script" id=6]
+[ext_resource path="res://Assets/BG_RingTurn.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Pit.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Totem/Yellow_Totem.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Obstables_Level0.tscn" type="PackedScene" id=10]
 
 [node name="Level0" type="Node2D"]
 
@@ -35,18 +38,35 @@ scale = Vector2( 3.8, 3.8 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="BG_1" type="Sprite" parent="." index="2"]
+[node name="BG_v2" type="Sprite" parent="." index="2"]
 
+scale = Vector2( 1.69764, 1.69764 )
 texture = ExtResource( 4 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="Pit" parent="." index="3" instance=ExtResource( 5 )]
+[node name="BG_CenterTurn" type="Sprite" parent="BG_v2" index="0"]
 
-[node name="Yellow_Totem" parent="." index="4" instance=ExtResource( 6 )]
+texture = ExtResource( 5 )
+script = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+speed = -2.0
+
+[node name="BG_RingTurn" type="Sprite" parent="BG_v2" index="1"]
+
+texture = ExtResource( 7 )
+script = ExtResource( 6 )
+_sections_unfolded = [ "Transform" ]
+speed = 1.0
+
+[node name="Pit" parent="." index="3" instance=ExtResource( 8 )]
+
+[node name="Yellow_Totem" parent="." index="4" instance=ExtResource( 9 )]
 
 position = Vector2( -7.62934, -779.554 )
 valid_number = 5
 
-[node name="Obstables" parent="." index="5" instance=ExtResource( 7 )]
+[node name="Obstables" parent="." index="5" instance=ExtResource( 10 )]
+
+position = Vector2( -26.5635, 7.5896 )
 
 

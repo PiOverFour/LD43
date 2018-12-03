@@ -13,14 +13,23 @@ var sacrificed_boids = 0
 	
 var BOID_LIVES = 10
 
+var menu = true
 
 func _ready():
 	randomize()
-	load_level("Level0")
-	update_life_bars()
+
+func _input(event):
+	if event.is_action_pressed("menu"):
+		if menu:
+			get_node("/root/Main/Menu/AnimationPlayer").play_backwards("GameOver")
+		else:
+			get_node("/root/Main/Menu/AnimationPlayer").play("GameOver")
+#		get_node("/root/Main").set_process(false)
+		menu = !menu
+
 
 func update_life_bars():
-	if sacrificed_boids == 2:  #BOID_LIVES:
+	if sacrificed_boids == BOID_LIVES:  #BOID_LIVES:
 		game_over()
 	get_node("/root/Main/HUD").update_lives(sacrificed_boids, BOID_LIVES)
 
