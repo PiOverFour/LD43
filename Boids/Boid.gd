@@ -6,11 +6,11 @@ export(TYPE) var boidType = TYPE.RED
 var speed
 var previous_speed
 export(float) var rotation_speed = 5.0
-var min_speed = 40
-var max_speed = 150
+var min_speed = 30
+var max_speed = 200
 var neighbour_min_distance = 10
 var group_detection_distance = 70
-var target_detection_distance = 500
+var target_detection_distance = 600
 
 export(float) var state_time = 0.2
 
@@ -28,15 +28,15 @@ var close_bodies = Array()
 enum STATE { TARGET, GROUP, ALONE, ATTRACTED, REPULSED }
 export(STATE) var boidState = STATE.ALONE
 
-export(float) var target_follow = 0.7 
-export(float) var target_follow_group = 0.3
-export(float) var target_vortex = 0
+var target_follow = 0.7 
+var target_follow_group = 0.3
+var target_vortex = 0
 
-export(float) var group_follow = 0.7
-export(float) var group_vortex = 0.3
+var group_follow = 0.8
+var group_vortex = 0.2
 
-export(float) var alone_vortex = 0.8
-export(float) var alone_wander = 0.2
+var alone_vortex = 0.8
+var alone_wander = 0.2
 
 var v_target = Vector2()
 var v_group = Vector2()

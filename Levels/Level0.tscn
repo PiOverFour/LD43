@@ -39,4 +39,25 @@ _sections_unfolded = [ "Transform" ]
 position = Vector2( -7.62934, -779.554 )
 valid_number = 5
 
+[node name="Obstables" type="StaticBody2D" parent="." index="4"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstables" index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 279.777, -1023.93, 653.649, -890.452, 1007.73, -485.121, 1082.28, -47.1764, 1031.03, 451.335, 821.372, 865.984, 439.557, 1015.37, -338.318, 1078.44, -355.137, 1200.38, 1249.97, 1105.81, 1158.45, -1256.56, -282.995, -1279.44, -308.885, -1049.16 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Obstables" index="1"]
+
+rotation = -3.12202
+build_mode = 0
+polygon = PoolVector2Array( 305.605, -1029.95, 653.649, -890.452, 1007.73, -485.121, 1082.28, -47.1764, 1031.03, 451.335, 821.372, 865.984, 308.175, 1034.91, -166.868, 1044.21, -134.643, 1186.57, 1249.97, 1105.81, 1158.45, -1256.56, -282.995, -1279.44, -334.873, -1093.12 )
+
 
