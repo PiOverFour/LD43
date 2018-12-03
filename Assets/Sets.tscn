@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Assets/BG_v2.png" type="Texture" id=1]
+[ext_resource path="res://Assets/BG_CenterTurn.png" type="Texture" id=2]
+[ext_resource path="res://Scripts/Rotator.gd" type="Script" id=3]
+[ext_resource path="res://Assets/BG_RingTurn.png" type="Texture" id=4]
+
+[node name="BG_v2" type="Sprite"]
+
+scale = Vector2( 1.69764, 1.69764 )
+texture = ExtResource( 1 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="BG_CenterTurn" type="Sprite" parent="." index="0"]
+
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+speed = -2.0
+
+[node name="BG_RingTurn" type="Sprite" parent="." index="1"]
+
+texture = ExtResource( 4 )
+script = ExtResource( 3 )
+_sections_unfolded = [ "Transform" ]
+speed = 1.0
+
+

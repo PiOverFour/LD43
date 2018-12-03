@@ -1,14 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scripts/Level_manager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Circle.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Levels/niveau1.jpg" type="Texture" id=3]
-[ext_resource path="res://Assets/BG_1.png" type="Texture" id=4]
-[ext_resource path="res://Assets/Pit.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Totem/Yellow_Totem.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Assets/Collider.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Assets/Doors/Yellow_Doors.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Assets/Obstables_Level0.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/BG_v2.png" type="Texture" id=3]
+[ext_resource path="res://Assets/BG_CenterTurn.png" type="Texture" id=4]
+[ext_resource path="res://Scripts/Rotator.gd" type="Script" id=5]
+[ext_resource path="res://Assets/BG_RingTurn.png" type="Texture" id=6]
+[ext_resource path="res://Assets/Pit.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Assets/Totem/Yellow_Totem.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Assets/Collider.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Assets/Doors/Yellow_Doors.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Obstables_Level0.tscn" type="PackedScene" id=11]
 
 [node name="Level1" type="Node2D" index="0"]
 
@@ -29,58 +31,59 @@ color = Color( 0.527344, 0.527344, 0.527344, 1 )
 radius = 500
 vertices = 32
 
-[node name="niveau1" type="Sprite" parent="." index="1"]
+[node name="BG_v2" type="Sprite" parent="." index="1"]
 
-visible = false
-position = Vector2( 4, -9 )
-scale = Vector2( 3.8, 3.8 )
+scale = Vector2( 1.69764, 1.69764 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="BG_1" type="Sprite" parent="." index="2"]
+[node name="BG_CenterTurn" type="Sprite" parent="BG_v2" index="0"]
 
 texture = ExtResource( 4 )
+script = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
+speed = -2.0
 
-[node name="Pit" parent="." index="3" instance=ExtResource( 5 )]
+[node name="BG_RingTurn" type="Sprite" parent="BG_v2" index="1"]
 
-[node name="Yellow_Totem" parent="." index="4" instance=ExtResource( 6 )]
+texture = ExtResource( 6 )
+script = ExtResource( 5 )
+_sections_unfolded = [ "Transform" ]
+speed = 1.0
+
+[node name="Pit" parent="." index="2" instance=ExtResource( 7 )]
+
+[node name="Yellow_Totem" parent="." index="3" instance=ExtResource( 8 )]
 
 position = Vector2( -5.77875, -772.152 )
 valid_number = 5
 
-[node name="Collider" parent="." index="5" instance=ExtResource( 7 )]
+[node name="Collider" parent="." index="4" instance=ExtResource( 9 )]
 
 position = Vector2( 250.751, 251.217 )
 rotation = -0.680697
 scale = Vector2( 1, 0.7 )
 
-[node name="Collider2" parent="." index="6" instance=ExtResource( 7 )]
-
-position = Vector2( -484.277, 160.915 )
-rotation = 1.00759
-scale = Vector2( 1, 0.7 )
-
-[node name="StaticBody2D" parent="." index="7" instance=ExtResource( 7 )]
+[node name="StaticBody2D" parent="." index="5" instance=ExtResource( 9 )]
 
 position = Vector2( -337.842, -184.151 )
 rotation = 2.05472
 scale = Vector2( 1, 0.7 )
 
-[node name="Yellow_Doors" parent="." index="8" instance=ExtResource( 8 )]
+[node name="Yellow_Doors" parent="." index="6" instance=ExtResource( 10 )]
 
 position = Vector2( 412.462, -212.961 )
 rotation = -0.475893
 scale = Vector2( 0.9, 0.9 )
 
-[node name="Yellow_Doors2" parent="." index="9" instance=ExtResource( 8 )]
+[node name="Yellow_Doors2" parent="." index="7" instance=ExtResource( 10 )]
 
 position = Vector2( -261.64, 355.842 )
 rotation = -0.837353
 scale = Vector2( 0.9, 0.9 )
 _sections_unfolded = [ "Collision", "Material", "Transform" ]
 
-[node name="Obstables" parent="." index="10" instance=ExtResource( 9 )]
+[node name="Obstables" parent="." index="8" instance=ExtResource( 11 )]
 
 position = Vector2( -39.7842, 1.00195 )
 
