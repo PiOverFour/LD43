@@ -65,6 +65,8 @@ onready var timer_sound = $Timer_Sound
 onready var animation_player = $AnimatedSprite
 
 func _ready():
+	# Set sound up
+	$Bubble.pitch_scale = rand_range(0.25, 2)
 	
 	speed = rand_range(min_speed, max_speed)
 	previous_speed = speed
@@ -175,7 +177,7 @@ func _on_Timer_State_timeout():
 
 func _on_Timer_Sound_timeout():
 	$Bubble.play()
-	timer_sound.wait_time = rand_range(1, 10)
+	timer_sound.wait_time = rand_range(1, 3)
 
 func delete():
 	animation_player.play("default")

@@ -50,7 +50,7 @@ func load_level(level):
 	
 	# Remove level if present
 	for c in get_node("/root/Main").get_children():
-		if c.name.begins_with("Level"):
+		if c.name.begins_with("Level1"):
 			get_node("/root/Main").remove_child(c)
 			c.queue_free()
 	
@@ -73,10 +73,12 @@ func load_level(level):
 	
 	# End Game
 	if level == "End":
-		for n in ["Player", "UI"]:
-			var c = get_node("/root/Main/" + n)
-			get_node("/root/Main").remove_child(c)
-			c.queue_free()
+#		for n in ["Player", "UI"]:
+#			var c = get_node("/root/Main/" + n)
+#			get_node("/root/Main").remove_child(c)
+#			c.queue_free()
+		get_node("/root/Main").move_child(level_scene, 2)
+		level_scene.find_node("AnimationPlayer").play("End")
 		
 	
 #############
