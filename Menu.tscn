@@ -34,7 +34,7 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[node name="Menu" type="CanvasLayer" index="0"]
+[node name="Menu" type="CanvasLayer"]
 
 pause_mode = 2
 layer = 1

@@ -30,13 +30,14 @@ func _process(delta):
 				return
 			
 			if body.boidState != STATE.ATTRACTED:
-				count += 1
-#				petale.get_child(count-1).visible = true
-#				print(get_node("sprites/" + str(count)))
-				get_node("./sprites/" + str(count)).visible = false
-				get_node("./sprites/" + str(count+1)).visible = true
-#				sprites.get_child(count-1).visible = false
-#				sprites.get_child(count).visible = true
+				if count < valid_number:
+					count += 1
+	#				petale.get_child(count-1).visible = true
+	#				print(get_node("sprites/" + str(count)))
+					get_node("./sprites/" + str(count)).visible = false
+					get_node("./sprites/" + str(count+1)).visible = true
+	#				sprites.get_child(count-1).visible = false
+	#				sprites.get_child(count).visible = true
 			
 			body.totem_position = position
 			body.boidState = STATE.ATTRACTED
