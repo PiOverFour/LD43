@@ -32,7 +32,7 @@ func _process(delta):
 			if body.boidState != STATE.ATTRACTED:
 				count += 1
 #				petale.get_child(count-1).visible = true
-				print(get_node("sprites/" + str(count)))
+#				print(get_node("sprites/" + str(count)))
 				get_node("./sprites/" + str(count)).visible = false
 				get_node("./sprites/" + str(count+1)).visible = true
 #				sprites.get_child(count-1).visible = false

@@ -20,10 +20,6 @@ animations = [ {
 
 [node name="Red" index="0" instance=ExtResource( 1 )]
 
-collision_layer = 9
-collision_mask = 9
-boidType = 2
-
 [node name="AnimatedSprite" parent="." index="0"]
 
 frames = SubResource( 1 )
