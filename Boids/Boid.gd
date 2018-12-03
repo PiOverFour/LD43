@@ -6,11 +6,11 @@ export(TYPE) var boidType = TYPE.RED
 var speed
 var previous_speed
 export(float) var rotation_speed = 5.0
-export(float) var min_speed = 50
-export(float) var max_speed = 150
-export(float) var neighbour_min_distance = 10
-export(float) var group_detection_distance = 40
-export(float) var target_detection_distance = 300
+var min_speed = 40
+var max_speed = 150
+var neighbour_min_distance = 10
+var group_detection_distance = 70
+var target_detection_distance = 500
 
 export(float) var state_time = 0.2
 
@@ -32,8 +32,8 @@ export(float) var target_follow = 0.7
 export(float) var target_follow_group = 0.3
 export(float) var target_vortex = 0
 
-export(float) var group_follow = 0.5
-export(float) var group_vortex = 0.5
+export(float) var group_follow = 0.7
+export(float) var group_vortex = 0.3
 
 export(float) var alone_vortex = 0.8
 export(float) var alone_wander = 0.2
@@ -140,7 +140,7 @@ func update_state(boidState):
 				heading = v_target * target_follow + v_group * target_follow_group + v_vortex * target_vortex
 			else:
 				heading = v_target * target_follow + v_group * target_follow_group + v_vortex * target_vortex
-				heading = (v_avoid + heading.normalized()) * heading.length_squared() / 2
+				heading = (v_avoid * 0.3 + 0.7 * heading.normalized()) * heading.length_squared()
 		GROUP:
 #			print("group")
 			v_group = group_detection.average_heading
@@ -150,7 +150,7 @@ func update_state(boidState):
 				heading = v_group.normalized() * group_follow + v_vortex.normalized() * group_vortex
 			else:
 				heading = v_group.normalized() * group_follow + v_vortex.normalized() * group_vortex
-#				heading = (v_avoid + heading.normalized()) * heading.length_squared() / 2
+				heading = (v_avoid * 0.3 + 0.7 * heading.normalized()) * heading.length_squared()
 		ALONE:
 #			print("alone")
 			speed = min_speed

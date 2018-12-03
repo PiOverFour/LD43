@@ -1,6 +1,7 @@
 extends Node
 
 const LEVELS = {
+	"Level0": preload("res://Levels/Level0.tscn"),
 	"Level1": preload("res://Levels/Level1.tscn"),
 	"Level2": preload("res://Levels/Level2.tscn"),
 	"End": preload("res://Levels/End.tscn"),
@@ -26,7 +27,7 @@ var BOID_LIVES = 10
 
 func _ready():
 	randomize()
-	load_level("Level1")
+	load_level("Level0")
 	update_life_bars()
 #	for i in range(50):
 #		call_deferred("add_boid")
@@ -50,7 +51,7 @@ func load_level(level):
 	
 	# Remove level if present
 	for c in get_node("/root/Main").get_children():
-		if c.name.begins_with("Level1"):
+		if c.name.begins_with("Level"):
 			get_node("/root/Main").remove_child(c)
 			c.queue_free()
 	
@@ -68,8 +69,8 @@ func load_level(level):
 		camera.limit_right = bounds
 		camera.limit_bottom = bounds
 		camera.zoom = Vector2(1.5, 1.5)
-		camera.drag_margin_h_enabled = true
-		camera.drag_margin_v_enabled = true
+		camera.drag_margin_h_enabled = false
+		camera.drag_margin_v_enabled = false
 	
 	# End Game
 	if level == "End":

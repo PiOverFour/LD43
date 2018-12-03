@@ -1,23 +1,22 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scripts/Level_manager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Circle.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/niveau1.jpg" type="Texture" id=3]
 [ext_resource path="res://Assets/Pit.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Assets/Totem/Yellow_Totem.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Assets/Doors/Blue_Doors.tscn" type="PackedScene" id=6]
 
-[node name="Level1" type="Node2D" index="0"]
+[node name="Level0" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 boidArray = [ "YELLOW", "BLUE" ]
 totemArray = [ NodePath("Yellow_Totem") ]
-bounds = 5000
+bounds = 2000
 boid_radius = 800
-next_level = "Level2"
+next_level = "Level1"
 spawn_interval = 3
 win_time = 5
-dezoom = 3.0
+dezoom = 3.5
 
 [node name="Border" parent="." index="0" instance=ExtResource( 2 )]
 
@@ -35,53 +34,9 @@ _sections_unfolded = [ "Transform" ]
 
 [node name="Pit" parent="." index="2" instance=ExtResource( 4 )]
 
-[node name="Obstacle" type="StaticBody2D" parent="." index="3"]
+[node name="Yellow_Totem" parent="." index="3" instance=ExtResource( 5 )]
 
-editor/display_folded = true
-position = Vector2( -13.6324, -22.7207 )
-scale = Vector2( 2.2, 2.2 )
-input_pickable = false
-collision_layer = 1
-collision_mask = 1
-constant_linear_velocity = Vector2( 0, 0 )
-constant_angular_velocity = 0.0
-friction = 1.0
-bounce = 0.0
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Obstacle" index="0"]
-
-build_mode = 0
-polygon = PoolVector2Array( -5.49011, 378.048, 15.0933, 378.606, 15.0508, 270.964, -5.15335, 270.964 )
-
-[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="Obstacle" index="1"]
-
-position = Vector2( 0, -241.244 )
-build_mode = 0
-polygon = PoolVector2Array( -5.49011, 378.048, 15.0933, 378.606, 15.327, 284.448, -4.27406, 284.75 )
-
-[node name="CollisionPolygon2D3" type="CollisionPolygon2D" parent="Obstacle" index="2"]
-
-position = Vector2( 211.809, 115.394 )
-rotation = 2.07454
-build_mode = 0
-polygon = PoolVector2Array( -5.49011, 378.048, 15.0933, 378.606, 15.0634, 261.843, -1.13376, 261.818 )
-
-[node name="CollisionPolygon2D4" type="CollisionPolygon2D" parent="Obstacle" index="3"]
-
-position = Vector2( -192.424, 131.615 )
-rotation = 4.19285
-build_mode = 0
-polygon = PoolVector2Array( -5.13961, 377.781, 15.0933, 378.606, 14.8408, 264.494, -5.39415, 264.038 )
-
-[node name="Yellow_Totem" parent="." index="4" instance=ExtResource( 5 )]
-
-position = Vector2( -5.77875, -772.152 )
+position = Vector2( -7.62934, -779.554 )
 valid_number = 5
-
-[node name="Blue_Doors" parent="." index="5" instance=ExtResource( 6 )]
-
-position = Vector2( -2.26215, 414.221 )
-rotation = -1.5708
-scale = Vector2( 1, 0.7 )
 
 

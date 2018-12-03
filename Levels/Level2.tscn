@@ -17,10 +17,11 @@ script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
 boidArray = [ "YELLOW", "BLUE", "RED" ]
 totemArray = [ NodePath("Red_Totem"), NodePath("Blue_Totem"), NodePath("Yellow_Totem") ]
-bounds = 1600
+bounds = 4000
 boid_radius = 1200
 next_level = "End"
-win_time = 4
+spawn_interval = 3
+win_time = 5
 dezoom = 4.5
 
 [node name="Border" parent="." index="0" instance=ExtResource( 2 )]
@@ -139,23 +140,23 @@ polygon = PoolVector2Array( -5.07136, 424.089, 15.0277, 422.825, 14.8408, 264.49
 
 [node name="Blue_Totem" parent="." index="4" instance=ExtResource( 5 )]
 
-position = Vector2( -1007.73, 634.208 )
-rotation = -2.11113
+position = Vector2( -1048.01, 661.901 )
+rotation = -2.14371
 scale = Vector2( 1.5, 1.5 )
-valid_number = 3
+valid_number = 5
 
 [node name="Yellow_Totem" parent="." index="5" instance=ExtResource( 6 )]
 
-position = Vector2( 9.29395, -1120.44 )
+position = Vector2( -5.81127, -1211.07 )
 scale = Vector2( 1.5, 1.5 )
-valid_number = 3
+valid_number = 5
 
 [node name="Red_Totem" parent="." index="6" instance=ExtResource( 7 )]
 
-position = Vector2( 1046.26, 601.609 )
-rotation = 2.11999
+position = Vector2( 1114.23, 631.819 )
+rotation = 2.08593
 scale = Vector2( 1.5, 1.5 )
-valid_number = 3
+valid_number = 5
 
 [node name="Yellow_Doors" parent="." index="7" instance=ExtResource( 8 )]
 

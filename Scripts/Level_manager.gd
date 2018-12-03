@@ -17,6 +17,8 @@ export var bounds = 1000
 export var boid_radius = 800
 export(String) var next_level
 
+export(float) var spawn_interval = 3
+
 onready var timer = Timer.new()
 onready var win_timer = Timer.new()
 export var win_time = 4
@@ -32,7 +34,7 @@ var t = 0
 
 func _ready():
 	# Set up boid instancing
-	timer.wait_time = 2 # Spawn interval
+	timer.wait_time = spawn_interval # Spawn interval
 	timer.connect("timeout", self, "add_boid")
 	timer.autostart = true
 	timer.process_mode = timer.TIMER_PROCESS_PHYSICS
