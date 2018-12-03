@@ -89,8 +89,8 @@ valid_number = 5
 
 [node name="Yellow_Doors" parent="." index="7" instance=ExtResource( 8 )]
 
-position = Vector2( -6.79346, 916.329 )
-rotation = -1.5708
+position = Vector2( 779.343, -462.817 )
+rotation = -0.577439
 scale = Vector2( 1, 0.7 )
 
 [node name="Yellow_Doors2" parent="." index="8" instance=ExtResource( 8 )]
@@ -101,8 +101,8 @@ scale = Vector2( 1, 0.7 )
 
 [node name="Red_Doors" parent="." index="9" instance=ExtResource( 9 )]
 
-position = Vector2( -787.629, -462.487 )
-rotation = -2.61676
+position = Vector2( -10.5811, 932.564 )
+rotation = -1.57151
 scale = Vector2( 1, 0.7 )
 
 [node name="Red_Doors2" parent="." index="10" instance=ExtResource( 9 )]
@@ -113,8 +113,8 @@ scale = Vector2( 1, 0.7 )
 
 [node name="Blue_Doors" parent="." index="11" instance=ExtResource( 10 )]
 
-position = Vector2( 785.371, -446.897 )
-rotation = -0.509181
+position = Vector2( -780.085, -455.985 )
+rotation = -2.59008
 scale = Vector2( 1, 0.7 )
 
 [node name="Blue_Doors2" parent="." index="12" instance=ExtResource( 10 )]
@@ -125,22 +125,32 @@ scale = Vector2( 1, 0.7 )
 
 [node name="Collider" parent="." index="13" instance=ExtResource( 11 )]
 
-position = Vector2( -399.84, -71.7402 )
+position = Vector2( -336.222, 23.6867 )
 rotation = 1.61447
 
 [node name="Collider2" parent="." index="14" instance=ExtResource( 11 )]
 
-position = Vector2( 426.389, 248.109 )
-rotation = -0.895048
+position = Vector2( 299.255, 338.333 )
+rotation = -0.707122
 
-[node name="Collider3" parent="." index="15" instance=ExtResource( 11 )]
+[node name="Collider6" parent="." index="15" instance=ExtResource( 11 )]
+
+position = Vector2( 729.869, -4.10785 )
+rotation = -1.69999
+
+[node name="Collider3" parent="." index="16" instance=ExtResource( 11 )]
 
 position = Vector2( -249.08, 460.617 )
 rotation = 0.597282
 
-[node name="Collider4" parent="." index="16" instance=ExtResource( 11 )]
+[node name="Collider4" parent="." index="17" instance=ExtResource( 11 )]
 
-position = Vector2( -10.0095, -472.897 )
-rotation = 3.32777
+position = Vector2( -274.53, -606.182 )
+rotation = 2.92503
+
+[node name="Collider5" parent="." index="18" instance=ExtResource( 11 )]
+
+position = Vector2( 168.388, -362.168 )
+rotation = 3.73446
 
 

@@ -10,7 +10,7 @@
 [ext_resource path="res://Assets/Doors/Yellow_Doors.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Obstables_Level0.tscn" type="PackedScene" id=9]
 
-[node name="Level1" type="Node2D"]
+[node name="Level1" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 boidArray = [ "YELLOW", "BLUE" ]
@@ -51,8 +51,8 @@ valid_number = 5
 
 [node name="Collider" parent="." index="5" instance=ExtResource( 7 )]
 
-position = Vector2( 87.1621, 342.1 )
-rotation = -0.232124
+position = Vector2( 250.751, 251.217 )
+rotation = -0.680697
 scale = Vector2( 1, 0.7 )
 
 [node name="Collider2" parent="." index="6" instance=ExtResource( 7 )]
