@@ -12,7 +12,7 @@
 [ext_resource path="res://Assets/Doors/Yellow_Doors.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Assets/Obstables_Level0.tscn" type="PackedScene" id=11]
 
-[node name="Level1" type="Node2D" index="0"]
+[node name="Level1" type="Node2D"]
 
 script = ExtResource( 1 )
 boidArray = [ "YELLOW", "BLUE" ]

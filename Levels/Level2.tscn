@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scripts/Level_manager.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Circle.tscn" type="PackedScene" id=2]
@@ -10,10 +10,11 @@
 [ext_resource path="res://Assets/Totem/Blue_Totem.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Totem/Yellow_Totem.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Totem/Red_Totem.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Assets/Doors/Yellow_Doors.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Assets/Doors/Red_Doors.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Assets/Doors/Blue_Doors.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Assets/Collider.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scripts/Rotator_Node2D.gd" type="Script" id=11]
+[ext_resource path="res://Assets/Doors/Yellow_Doors.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Assets/Doors/Red_Doors.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Assets/Doors/Blue_Doors.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Assets/Collider.tscn" type="PackedScene" id=15]
 
 [node name="Level2" type="Node2D" index="0"]
 
@@ -36,32 +37,35 @@ color = Color( 0.527344, 0.527344, 0.527344, 1 )
 radius = 500
 vertices = 32
 
-[node name="BG_v2" type="Sprite" parent="." index="1"]
+[node name="Node2D" type="Node2D" parent="." index="1"]
 
+scale = Vector2( 0.8, 0.8 )
+_sections_unfolded = [ "Transform" ]
+
+[node name="BG_v2" type="Sprite" parent="Node2D" index="0"]
+
+editor/display_folded = true
 scale = Vector2( 2.64607, 2.64607 )
 texture = ExtResource( 3 )
 _sections_unfolded = [ "Transform" ]
 
-[node name="BG_CenterTurn" type="Sprite" parent="BG_v2" index="0"]
+[node name="BG_CenterTurn" type="Sprite" parent="Node2D/BG_v2" index="0"]
 
 texture = ExtResource( 4 )
 script = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
 speed = -2.0
 
-[node name="BG_RingTurn" type="Sprite" parent="BG_v2" index="1"]
+[node name="BG_RingTurn" type="Sprite" parent="Node2D/BG_v2" index="1"]
 
 texture = ExtResource( 6 )
 script = ExtResource( 5 )
 _sections_unfolded = [ "Transform" ]
-speed = 1.0
+speed = 3.0
 
-[node name="Pit" parent="." index="2" instance=ExtResource( 7 )]
+[node name="Obstacle" type="StaticBody2D" parent="Node2D" index="1"]
 
-position = Vector2( -1.38155, -1.49149 )
-
-[node name="Obstacle" type="StaticBody2D" parent="." index="3"]
-
+editor/display_folded = true
 position = Vector2( -13.6324, -22.7207 )
 scale = Vector2( 2.2, 2.2 )
 input_pickable = false
@@ -71,103 +75,77 @@ constant_linear_velocity = Vector2( 0, 0 )
 constant_angular_velocity = 0.0
 friction = 1.0
 bounce = 0.0
+_sections_unfolded = [ "Transform" ]
 
-[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="Obstacle" index="0"]
+[node name="CollisionPolygon2D13" type="CollisionPolygon2D" parent="Node2D/Obstacle" index="0"]
 
 build_mode = 0
 polygon = PoolVector2Array( 128.27, -878.165, 227.655, -740.556, 336.595, -669.839, 514.341, -511.206, 623.073, -333.206, 701.446, -115.236, 734.297, 41.9804, 825.811, 196.85, 882.127, 393.956, 670.942, 508.935, 567.695, 532.4, 255.643, 672.637, 3.80785, 698.511, -310.123, 733.009, -339.447, 789.93, 1048.73, 825.713, 879.429, -899.609, -167.973, -1031.06, -183.263, -897.277 )
 
-[node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="Obstacle" index="1"]
+[node name="CollisionPolygon2D14" type="CollisionPolygon2D" parent="Node2D/Obstacle" index="1"]
 
 position = Vector2( -25.928, -92.1886 )
 rotation = -3.11979
 build_mode = 0
 polygon = PoolVector2Array( 16.6479, -787.593, 283.426, -750.484, 435.449, -662.358, 545.591, -675.112, 696.078, -578.325, 697.933, -352.24, 658.611, -239.348, 671, 12.2766, 577.41, 309.345, 433.724, 445.327, 272.379, 562.715, 141.705, 741.546, -13.4937, 824.295, -1.49212, 899.946, 888.071, 805.879, 879.429, -899.609, -215.31, -911.133, -265.864, -792.959 )
 
-[node name="Blue_Totem" parent="." index="4" instance=ExtResource( 8 )]
+[node name="Pit" parent="." index="2" instance=ExtResource( 7 )]
 
-position = Vector2( -1154.8, 698.254 )
+position = Vector2( -1.38155, -1.49149 )
+
+[node name="Blue_Totem" parent="." index="3" instance=ExtResource( 8 )]
+
+position = Vector2( -904.79, 530.439 )
 rotation = -2.14371
-scale = Vector2( 1.5, 1.5 )
 valid_number = 5
 
-[node name="Yellow_Totem" parent="." index="5" instance=ExtResource( 9 )]
+[node name="Yellow_Totem" parent="." index="4" instance=ExtResource( 9 )]
 
-position = Vector2( 5.54908, -1456.45 )
-scale = Vector2( 1.5, 1.5 )
+position = Vector2( 2.12402, -1213.29 )
 valid_number = 5
 
-[node name="Red_Totem" parent="." index="6" instance=ExtResource( 10 )]
+[node name="Red_Totem" parent="." index="5" instance=ExtResource( 10 )]
 
-position = Vector2( 1366.43, 603.426 )
+position = Vector2( 1085.5, 478.342 )
 rotation = 2.01767
-scale = Vector2( 1.5, 1.5 )
 valid_number = 5
 
-[node name="Yellow_Doors" parent="." index="7" instance=ExtResource( 11 )]
+[node name="colliders" type="Node2D" parent="." index="6"]
 
-position = Vector2( 779.343, -462.817 )
-rotation = -0.577439
+script = ExtResource( 11 )
+speed = -3.0
+
+[node name="Yellow_Doors" parent="colliders" index="0" instance=ExtResource( 12 )]
+
+position = Vector2( 438.317, -324.999 )
+rotation = -3.17268
 scale = Vector2( 1, 0.7 )
 
-[node name="Yellow_Doors2" parent="." index="8" instance=ExtResource( 11 )]
+[node name="Red_Doors" parent="colliders" index="1" instance=ExtResource( 13 )]
 
-position = Vector2( -430.242, -264.382 )
-rotation = 0.584456
+position = Vector2( 47.9212, 541.815 )
+rotation = -1.05769
 scale = Vector2( 1, 0.7 )
 
-[node name="Red_Doors" parent="." index="9" instance=ExtResource( 12 )]
+[node name="Blue_Doors" parent="colliders" index="2" instance=ExtResource( 14 )]
 
-position = Vector2( -10.5811, 932.564 )
-rotation = -1.57151
+position = Vector2( -508.528, -284.248 )
+rotation = -5.22904
 scale = Vector2( 1, 0.7 )
 
-[node name="Red_Doors2" parent="." index="10" instance=ExtResource( 12 )]
+[node name="Collider2" parent="colliders" index="3" instance=ExtResource( 15 )]
 
-position = Vector2( 445.626, -227.581 )
-rotation = -3.67319
-scale = Vector2( 1, 0.7 )
+position = Vector2( 439.249, 51.9247 )
+rotation = -0.884474
 
-[node name="Blue_Doors" parent="." index="11" instance=ExtResource( 13 )]
+[node name="Collider3" parent="colliders" index="4" instance=ExtResource( 15 )]
 
-position = Vector2( -780.085, -455.985 )
-rotation = -2.59008
-scale = Vector2( 1, 0.7 )
+position = Vector2( -322.651, 356.138 )
+rotation = 1.24649
 
-[node name="Blue_Doors2" parent="." index="12" instance=ExtResource( 13 )]
+[node name="Collider4" parent="colliders" index="5" instance=ExtResource( 15 )]
 
-position = Vector2( -0.146973, 479.027 )
-rotation = 1.56531
-scale = Vector2( 1, 0.7 )
-
-[node name="Collider" parent="." index="13" instance=ExtResource( 14 )]
-
-position = Vector2( -336.222, 23.6867 )
-rotation = 1.61447
-
-[node name="Collider2" parent="." index="14" instance=ExtResource( 14 )]
-
-position = Vector2( 299.255, 338.333 )
-rotation = -0.707122
-
-[node name="Collider6" parent="." index="15" instance=ExtResource( 14 )]
-
-position = Vector2( 729.869, -4.10785 )
-rotation = -1.69999
-
-[node name="Collider3" parent="." index="16" instance=ExtResource( 14 )]
-
-position = Vector2( -249.08, 460.617 )
-rotation = 0.597282
-
-[node name="Collider4" parent="." index="17" instance=ExtResource( 14 )]
-
-position = Vector2( -274.53, -606.182 )
-rotation = 2.92503
-
-[node name="Collider5" parent="." index="18" instance=ExtResource( 14 )]
-
-position = Vector2( 168.388, -362.168 )
-rotation = 3.73446
+position = Vector2( -154.975, -388.832 )
+rotation = -3.12745
 
 
