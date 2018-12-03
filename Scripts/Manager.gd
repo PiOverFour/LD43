@@ -4,7 +4,7 @@ const LEVELS = {
 	"Level0": preload("res://Levels/Level0.tscn"),
 	"Level1": preload("res://Levels/Level1.tscn"),
 	"Level2": preload("res://Levels/Level2.tscn"),
-	"End": preload("res://Levels/End.tscn"),
+	"End": preload("res://Levels/Menu.tscn"),
 	}
 
 enum BOID_TYPES { RED, YELLOW, BLUE }
@@ -67,9 +67,9 @@ func setup_new_level(level):
 		camera.drag_margin_v_enabled = false
 	
 	# End Game
-	if level == "End":
+	if level == "Menu":
 		get_node("/root/Main").move_child(level_scene, 2)
-		level_scene.find_node("AnimationPlayer").play("End")
+		level_scene.find_node("AnimationPlayer").play("Menu")
 		
 	
 #############
