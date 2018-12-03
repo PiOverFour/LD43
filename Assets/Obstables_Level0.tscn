@@ -1,0 +1,24 @@
+[gd_scene format=2]
+
+[node name="Obstables" type="StaticBody2D"]
+
+input_pickable = false
+collision_layer = 1
+collision_mask = 1
+constant_linear_velocity = Vector2( 0, 0 )
+constant_angular_velocity = 0.0
+friction = 1.0
+bounce = 0.0
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." index="0"]
+
+build_mode = 0
+polygon = PoolVector2Array( 17.6003, -1179.53, 318.867, -1048.42, 469.5, -897.787, 787.504, -641.152, 974.401, -286.885, 1024.61, 134.33, 938.137, 474.65, 742.872, 708.968, 472.29, 915.392, -10.2947, 971.182, -325.509, 960.024, -355.137, 1200.38, 1249.97, 1105.81, 1158.45, -1256.56, -282.995, -1279.44, -247.403, -1168.37 )
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." index="1"]
+
+rotation = -3.12202
+build_mode = 0
+polygon = PoolVector2Array( 150.53, -960.364, 563.129, -834.519, 824.9, -574.59, 958.543, -303.782, 986.146, 108.604, 907.609, 372.405, 712.208, 652.444, 385.289, 912.737, 264.398, 1079.96, -25.0269, 1188.61, -37.4431, 1266.98, 1249.97, 1105.81, 1158.45, -1256.56, -282.995, -1279.44, -371.008, -950.155 )
+
+
