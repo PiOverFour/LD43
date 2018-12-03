@@ -29,15 +29,11 @@ func _ready():
 	randomize()
 	load_level("Level0")
 	update_life_bars()
-#	for i in range(50):
-#		call_deferred("add_boid")
 
 func update_life_bars():
 	if sacrificed_boids == BOID_LIVES:
 		game_over()
-#	for type in BOID_TYPES:
-#		print(typeof(type))
-	get_node("/root/Main/UI/PC/HC/VC/SACRIFICED").value = 100 - 100 * sacrificed_boids / BOID_LIVES
+	get_node("/root/Main/UI").update_lives(sacrificed_boids, BOID_LIVES)
 
 func game_over():
 #	pass
