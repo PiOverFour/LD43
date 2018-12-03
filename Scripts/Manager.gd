@@ -62,10 +62,14 @@ func load_level(level):
 	# Setup camera
 	if "bounds" in level_scene:
 		var bounds = level_scene.bounds
-		get_node("/root/Main/Player/Camera2D").limit_left = -bounds
-		get_node("/root/Main/Player/Camera2D").limit_top = -bounds
-		get_node("/root/Main/Player/Camera2D").limit_right = bounds
-		get_node("/root/Main/Player/Camera2D").limit_bottom = bounds
+		var camera = get_node("/root/Main/Player/Camera2D")
+		camera.limit_left = -bounds
+		camera.limit_top = -bounds
+		camera.limit_right = bounds
+		camera.limit_bottom = bounds
+		camera.zoom = Vector2(1.5, 1.5)
+		camera.drag_margin_h_enabled = true
+		camera.drag_margin_v_enabled = true
 	
 	# End Game
 	if level == "End":

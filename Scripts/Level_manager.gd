@@ -18,9 +18,15 @@ export var boid_radius = 800
 export(String) var next_level
 
 onready var timer = Timer.new()
+onready var win_timer = Timer.new()
+export var win_time = 4
 
+onready var player = get_node("../Player")
+onready var camera = get_node("../Player/Camera2D")
 
 var valid = false
+var victory = false
+var t = 0
 
 func _ready():
 	# Set up boid instancing
@@ -31,6 +37,12 @@ func _ready():
 #	timer.start()
 	add_child(timer)
 	
+	win_timer.wait_time = win_time
+	win_timer.connect("timeout", self, "win")
+	win_timer.autostart = false
+	win_timer.process_mode = win_timer.TIMER_PROCESS_PHYSICS
+	add_child(win_timer)
+	
 	for i in range(0, boidArray.size()):
 		for j in range(1,6):
 			var path = boids[boidArray[i]] + str(j) + ".tscn"
@@ -40,15 +52,30 @@ func _ready():
 
 
 func _process(delta):
-	valid = true
-	for totem in totemArray:
-		if get_node(totem).valid == false:
-			valid = false
-			
-	if valid:
+	
+	if not valid:
+		for totem in totemArray:
+			valid = true
+			if get_node(totem).valid == false:
+				valid = false
+	else:
+		if not victory:
+			victory = true
+			win_timer.start()
 		# win
-		Manager.load_level(next_level)
-		pass
+		player.position = player.position.linear_interpolate(Vector2(0,0), min(t, 1))
+		camera.zoom = camera.zoom.linear_interpolate(Vector2(2.5,2.5), min(t, 1))
+		camera.limit_left = -3000
+		camera.limit_top = -3000
+		camera.limit_right = 3000
+		camera.limit_bottom = 3000
+		camera.drag_margin_h_enabled = false
+		camera.drag_margin_v_enabled = false
+		t += delta / 2
+		
+
+func win():
+	Manager.load_level(next_level)
 
 func add_boid():
 #	print("Adding boid...")

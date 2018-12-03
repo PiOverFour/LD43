@@ -40,11 +40,9 @@ scale = Vector2( 0.02, 0.02 )
 color = Color( 1, 1, 1, 0.204431 )
 script = null
 
-[node name="Sprite" type="Sprite" parent="." index="1"]
+[node name="petale" type="Node2D" parent="." index="1"]
 
-texture = ExtResource( 3 )
-
-[node name="petale" type="Node2D" parent="." index="2"]
+editor/display_folded = true
 
 [node name="1" type="Sprite" parent="petale" index="0"]
 
@@ -111,6 +109,47 @@ texture = ExtResource( 3 )
 
 visible = false
 position = Vector2( 153.425, -63.175 )
+texture = ExtResource( 3 )
+
+[node name="sprites" type="Node2D" parent="." index="2"]
+
+[node name="1" type="Sprite" parent="sprites" index="0"]
+
+texture = ExtResource( 3 )
+
+[node name="2" type="Sprite" parent="sprites" index="1"]
+
+visible = false
+texture = ExtResource( 3 )
+
+[node name="3" type="Sprite" parent="sprites" index="2"]
+
+visible = false
+texture = ExtResource( 3 )
+
+[node name="4" type="Sprite" parent="sprites" index="3"]
+
+visible = false
+texture = ExtResource( 3 )
+
+[node name="5" type="Sprite" parent="sprites" index="4"]
+
+visible = false
+texture = ExtResource( 3 )
+
+[node name="6" type="Sprite" parent="sprites" index="5"]
+
+visible = false
+texture = ExtResource( 3 )
+
+[node name="7" type="Sprite" parent="sprites" index="6"]
+
+visible = false
+texture = ExtResource( 3 )
+
+[node name="8" type="Sprite" parent="sprites" index="7"]
+
+visible = false
 texture = ExtResource( 3 )
 
 
