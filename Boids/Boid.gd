@@ -188,7 +188,7 @@ func _on_AnimatedSprite_animation_finished():
 	var parent = get_parent()
 	if parent != null:
 		var type = boidType
-		print('incrementing type ', type)
+#		print('incrementing type ', type)
 		Manager.sacrificed_boids += 1
 		Manager.update_life_bars()
 		queue_free()

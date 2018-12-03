@@ -10,17 +10,6 @@ const LEVELS = {
 enum BOID_TYPES { RED, YELLOW, BLUE }
 	
 var sacrificed_boids = 0
-#const boid_names = {
-#	RED: "RED",
-#	YELLOW: "YELLOW",
-#	BLUE: "BLUE",
-#	}
-
-#var sacrificed_boids = {
-#	'RED': 0,
-#	'YELLOW': 0,
-#	'BLUE': 0,
-#	}
 	
 var BOID_LIVES = 10
 
@@ -31,26 +20,35 @@ func _ready():
 	update_life_bars()
 
 func update_life_bars():
-	if sacrificed_boids == BOID_LIVES:
+	if sacrificed_boids == 2:  #BOID_LIVES:
 		game_over()
-	get_node("/root/Main/UI").update_lives(sacrificed_boids, BOID_LIVES)
+	get_node("/root/Main/HUD").update_lives(sacrificed_boids, BOID_LIVES)
 
 func game_over():
-#	pass
-	get_node("/root/Main/UI/GameOver").visible = true
-	get_node("/root/Main/UI/AnimationPlayer").play("GameOver")
+	get_node("/root/Main/Defeat/GameOver").visible = true
+	get_node("/root/Main/Defeat/AnimationPlayer").play("GameOver")
+
+func continue_level():
+	load_level(get_node("/root/Main/").get_children()[0].name)
+	get_node("/root/Main/Defeat/AnimationPlayer").play_backwards("GameOver")
+	get_node("/root/Main/Defeat/GameOver").visible = false
 
 func load_level(level):
+	reset_level()
+	setup_new_level(level)
+
+func reset_level():
 	# Reset sacrifices
 	sacrificed_boids = 0
 	update_life_bars()
-	
+
+func setup_new_level(level):
 	# Remove level if present
-	for c in get_node("/root/Main").get_children():
-		if c.name.begins_with("Level"):
-			get_node("/root/Main").remove_child(c)
-			c.queue_free()
-	
+	for child in get_node("/root/Main").get_children():
+		if child.name.begins_with("Level"):
+			get_node("/root/Main").remove_child(child)
+			child.queue_free()
+
 	# Load new level
 	var level_scene = LEVELS[level].instance()
 	get_node("/root/Main").add_child(level_scene)
@@ -70,10 +68,6 @@ func load_level(level):
 	
 	# End Game
 	if level == "End":
-#		for n in ["Player", "UI"]:
-#			var c = get_node("/root/Main/" + n)
-#			get_node("/root/Main").remove_child(c)
-#			c.queue_free()
 		get_node("/root/Main").move_child(level_scene, 2)
 		level_scene.find_node("AnimationPlayer").play("End")
 		

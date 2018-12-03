@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://HUD.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Defeat.tscn" type="PackedScene" id=3]
 
-[node name="Main" type="Node2D"]
+[node name="Main" type="Node2D" index="0"]
 
 [node name="Player" parent="." index="0" groups=[
 "player",
@@ -39,6 +40,8 @@ editor_draw_limits = false
 editor_draw_drag_margin = true
 _sections_unfolded = [ "Drag Margin", "Limit", "Offset", "Transform" ]
 
-[node name="UI" parent="." index="1" instance=ExtResource( 2 )]
+[node name="HUD" parent="." index="1" instance=ExtResource( 2 )]
+
+[node name="Defeat" parent="." index="2" instance=ExtResource( 3 )]
 
 
