@@ -19,6 +19,8 @@ func _on_ExitButton_pressed():
 func _on_PlayButton_pressed():
 	Manager.load_level("Level0")
 	get_node("/root/Main/Menu/AnimationPlayer").play_backwards("GameOver")
+	Manager.menu = false
+	Manager.in_game = true
 
 
 func _on_Continue2Button_pressed():
