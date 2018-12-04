@@ -16,6 +16,8 @@ var BOID_LIVES = 10
 var menu = true
 var in_game = false
 
+var fade = false
+
 func _ready():
 	randomize()
 
@@ -50,6 +52,7 @@ func continue_level():
 func load_level(level):
 	reset_level()
 	setup_new_level(level)
+	toggle_fader()
 
 func reset_level():
 	# Reset sacrifices
@@ -86,7 +89,15 @@ func setup_new_level(level):
 		camera.drag_margin_h_enabled = false
 		camera.drag_margin_v_enabled = false
 		
-	
+
+func toggle_fader():
+	if fade:
+		get_node("/root/Main/Fader/fader/AnimationPlayer").play("fade")
+	else:
+		get_node("/root/Main/Fader/fader/AnimationPlayer").play_backwards("fade")
+#			get_node("/root/Main").set_process(false)
+	fade = !fade
+
 #############
 #var agents = []
 #var target
