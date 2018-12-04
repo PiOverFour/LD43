@@ -28,7 +28,9 @@ func _input(event):
 func toggle_menu():
 	if in_game:
 		if menu:
+			var current_animation_position = get_node("/root/Main/Menu/AnimationPlayer").current_animation_position
 			get_node("/root/Main/Menu/AnimationPlayer").play_backwards("GameOver")
+			get_node("/root/Main/Menu/AnimationPlayer").seek(current_animation_position)
 		else:
 			get_node("/root/Main/Menu/AnimationPlayer").play("GameOver")
 #			get_node("/root/Main").set_process(false)
