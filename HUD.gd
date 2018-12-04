@@ -8,6 +8,7 @@ func update_lives(sacrificed_boids, total_lives):
 #			get_node("Lives/Grid/Life" + str(i)).visible = i >= sacrificed_boids
 			if i >= sacrificed_boids:
 				get_node("Lives/Grid/Life" + str(i) + "/AnimationPlayer").assigned_animation = "play"
+				get_node("Lives/Grid/Life" + str(i) + "/AnimationPlayer").play_backwards("play")
 				get_node("Lives/Grid/Life" + str(i) + "/AnimationPlayer").seek(0)
 			else:
 				get_node("Lives/Grid/Life" + str(i) + "/AnimationPlayer").play("play")
