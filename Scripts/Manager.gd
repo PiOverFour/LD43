@@ -108,9 +108,9 @@ func toggle_fader():
 
 func toggle_end():
 	if !end:
-		get_node("/root/Main/End/AnimationPlayer").play("GameOver")
+		get_node("/root/Main/Defeat/AnimationPlayer").play("GameOver")
 	else:
-		get_node("/root/Main/End/AnimationPlayer").play_backwards("GameOver")
+		get_node("/root/Main/Defeat/AnimationPlayer").play_backwards("GameOver")
 #			get_node("/root/Main").set_process(false)
 
 #############
