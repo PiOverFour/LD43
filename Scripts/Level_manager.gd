@@ -25,6 +25,8 @@ export var win_time = 4
 
 onready var fade_timer = Timer.new()
 
+onready var end_timer = Timer.new()
+
 onready var player = get_node("../Player")
 onready var camera = get_node("../Player/Camera2D")
 
@@ -55,6 +57,12 @@ func _ready():
 	fade_timer.process_mode = win_timer.TIMER_PROCESS_PHYSICS
 	add_child(fade_timer)
 	
+	end_timer.wait_time = 2
+	end_timer.connect("timeout", self, "end")
+	end_timer.autostart = false
+	end_timer.process_mode = win_timer.TIMER_PROCESS_PHYSICS
+	add_child(end_timer)
+	
 	for i in range(0, boidArray.size()):
 		for j in range(1,6):
 			var path = boids[boidArray[i]] + str(j) + ".tscn"
@@ -64,6 +72,9 @@ func _ready():
 
 
 func _process(delta):
+	
+#	if Input.is_mouse_button_pressed(BUTTON_RIGHT):
+#		valid = true
 	
 	if not valid:
 		for totem in totemArray:
@@ -76,7 +87,10 @@ func _process(delta):
 			var pit = $Pit
 			
 			pit.queue_free()
-			fade_timer.start()
+			if name == "Level2":
+				end_timer.start()
+			else:
+				fade_timer.start()
 			win_timer.start()
 		# win
 #		player.position = player.position.linear_interpolate(Vector2(0,0), min(t, 1))
@@ -93,6 +107,10 @@ func _process(delta):
 func fade():
 	fade_timer.stop()
 	Manager.toggle_fader()
+	
+func end():
+	end_timer.stop()
+	Manager.toggle_end()
 
 func win():
 	Manager.load_level(next_level)

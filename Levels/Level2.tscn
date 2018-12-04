@@ -16,7 +16,7 @@
 [ext_resource path="res://Assets/Doors/Blue_Doors.tscn" type="PackedScene" id=14]
 [ext_resource path="res://Assets/Collider.tscn" type="PackedScene" id=15]
 
-[node name="Level2" type="Node2D"]
+[node name="Level2" type="Node2D" index="0"]
 
 script = ExtResource( 1 )
 _sections_unfolded = [ "Visibility" ]
@@ -26,7 +26,7 @@ bounds = 4000
 boid_radius = 1200
 next_level = "Menu"
 spawn_interval = 3
-win_time = 5
+win_time = 12
 dezoom = 4.5
 
 [node name="Border" parent="." index="0" instance=ExtResource( 2 )]

@@ -34,7 +34,7 @@ tracks/1/keys = {
 "values": [ false, true, true ]
 }
 
-[node name="Defeat" type="CanvasLayer" index="0"]
+[node name="Defeat" type="CanvasLayer"]
 
 layer = 1
 offset = Vector2( 0, 0 )

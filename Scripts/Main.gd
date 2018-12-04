@@ -7,4 +7,6 @@ func _process(delta):
 	# CHEAT!
 	pass
 #	if Input.is_mouse_button_pressed(BUTTON_RIGHT):
-#		Manager.load_level("Menu")
+#		for child in get_children():
+#			if child.name.begins_with("Level"):
+#				Manager.load_level(child.next_level)

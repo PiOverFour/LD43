@@ -17,6 +17,7 @@ var menu = true
 var in_game = false
 
 var fade = false
+var end = true
 
 func _ready():
 	randomize()
@@ -50,12 +51,16 @@ func continue_level():
 	load_level(get_node("/root/Main/").get_children()[0].name, false)
 	get_node("/root/Main/Defeat/AnimationPlayer").play_backwards("GameOver")
 	get_node("/root/Main/Defeat/GameOver").visible = false
+	
 
 func load_level(level, fade=true):
 	reset_level()
 	setup_new_level(level)
 	if fade:
 		toggle_fader()
+	if end:
+		toggle_end()
+		end = !end
 
 func reset_level():
 	# Reset sacrifices
@@ -100,6 +105,13 @@ func toggle_fader():
 		get_node("/root/Main/Fader/fader/AnimationPlayer").play_backwards("fade")
 #			get_node("/root/Main").set_process(false)
 	fade = !fade
+
+func toggle_end():
+	if !end:
+		get_node("/root/Main/End/AnimationPlayer").play("GameOver")
+	else:
+		get_node("/root/Main/End/AnimationPlayer").play_backwards("GameOver")
+#			get_node("/root/Main").set_process(false)
 
 #############
 #var agents = []
