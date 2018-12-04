@@ -4,6 +4,7 @@ const LEVELS = {
 	"Level0": preload("res://Levels/Level0.tscn"),
 	"Level1": preload("res://Levels/Level1.tscn"),
 	"Level2": preload("res://Levels/Level2.tscn"),
+	"Menu": preload("res://Menu.tscn"),
 	}
 
 enum BOID_TYPES { RED, YELLOW, BLUE }
@@ -13,22 +14,27 @@ var sacrificed_boids = 0
 var BOID_LIVES = 10
 
 var menu = true
+var in_game = false
 
 func _ready():
 	randomize()
 
 func _input(event):
 	if event.is_action_pressed("menu"):
+		toggle_menu()
+	
+func toggle_menu():
+	if in_game:
 		if menu:
 			get_node("/root/Main/Menu/AnimationPlayer").play_backwards("GameOver")
 		else:
 			get_node("/root/Main/Menu/AnimationPlayer").play("GameOver")
-#		get_node("/root/Main").set_process(false)
+#			get_node("/root/Main").set_process(false)
 		menu = !menu
 
 
 func update_life_bars():
-	if sacrificed_boids == BOID_LIVES:  #BOID_LIVES:
+	if sacrificed_boids == BOID_LIVES:
 		game_over()
 	get_node("/root/Main/HUD").update_lives(sacrificed_boids, BOID_LIVES)
 
@@ -57,6 +63,12 @@ func setup_new_level(level):
 			get_node("/root/Main").remove_child(child)
 			child.queue_free()
 
+	# End Game
+	if level == "Menu":
+		toggle_menu()
+		in_game = false
+		return
+
 	# Load new level
 	var level_scene = LEVELS[level].instance()
 	get_node("/root/Main").add_child(level_scene)
@@ -73,12 +85,6 @@ func setup_new_level(level):
 		camera.zoom = Vector2(1.5, 1.5)
 		camera.drag_margin_h_enabled = false
 		camera.drag_margin_v_enabled = false
-	
-	# End Game
-	if level == "Menu":
-		get_node("/root/Main").move_child(level_scene, 2)
-		get_node("/root/Main/Menu/AnimationPlayer").play_backwards("GameOver")
-		menu = true
 		
 	
 #############
