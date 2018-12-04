@@ -47,14 +47,15 @@ func game_over():
 	get_node("/root/Main/Defeat/AnimationPlayer").play("GameOver")
 
 func continue_level():
-	load_level(get_node("/root/Main/").get_children()[0].name)
+	load_level(get_node("/root/Main/").get_children()[0].name, false)
 	get_node("/root/Main/Defeat/AnimationPlayer").play_backwards("GameOver")
 	get_node("/root/Main/Defeat/GameOver").visible = false
 
-func load_level(level):
+func load_level(level, fade=true):
 	reset_level()
 	setup_new_level(level)
-	toggle_fader()
+	if fade:
+		toggle_fader()
 
 func reset_level():
 	# Reset sacrifices
