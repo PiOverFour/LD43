@@ -26,11 +26,16 @@ func _on_ExitButton_pressed():
 
 
 func _on_PlayButton_pressed():
-	Manager.load_level("Level0")
-	get_node("/root/Main/Menu/AnimationPlayer").play_backwards("GameOver")
+	if not Manager.in_game:
+		Manager.load_level("Level0")
+		Manager.in_game = true
 	Manager.menu = false
-	Manager.in_game = true
+	get_node("/root/Main/Menu/AnimationPlayer").play_backwards("GameOver")
+	get_node("/root/Main/Menu/AnimationPlayer").seek(0)
 
 
 func _on_Continue2Button_pressed():
-	get_node("/root/Main/Menu/AnimationPlayer").play_backwards("GameOver")
+	if Manager.in_game:
+		get_node("/root/Main/Menu/AnimationPlayer").play_backwards("GameOver")
+		get_node("/root/Main/Menu/AnimationPlayer").seek(0)
+		Manager.menu = false
