@@ -8,16 +8,16 @@ const LEVELS = {
 	}
 
 enum BOID_TYPES { RED, YELLOW, BLUE }
-	
+
 var sacrificed_boids = 0
-	
+
 var BOID_LIVES = 10
 
 var menu = true
 var in_game = false
 
 var fade = false
-var end = true
+var end = false
 
 func _ready():
 	randomize()
@@ -51,7 +51,6 @@ func continue_level():
 	load_level(get_node("/root/Main/").get_children()[0].name, false)
 	get_node("/root/Main/Defeat/AnimationPlayer").play_backwards("GameOver")
 	get_node("/root/Main/Defeat/GameOver").visible = false
-	
 
 func load_level(level, fade=true):
 	reset_level()
@@ -96,7 +95,6 @@ func setup_new_level(level):
 		camera.zoom = Vector2(1.5, 1.5)
 		camera.drag_margin_h_enabled = false
 		camera.drag_margin_v_enabled = false
-		
 
 func toggle_fader():
 	if fade:
@@ -108,55 +106,7 @@ func toggle_fader():
 
 func toggle_end():
 	if !end:
-		get_node("/root/Main/Defeat/AnimationPlayer").play("GameOver")
+		get_node("/root/Main/End/AnimationPlayer").play("GameOver")
 	else:
-		get_node("/root/Main/Defeat/AnimationPlayer").play_backwards("GameOver")
+		get_node("/root/Main/End/AnimationPlayer").play_backwards("GameOver")
 #			get_node("/root/Main").set_process(false)
-
-#############
-#var agents = []
-#var target
-#var average_velocity = Vector2()
-#var center = Vector2()
-##var is_velocity_dirty = true
-#
-#func set_target(_target):
-#	target = _target
-#
-#func add_agent(_agent):
-#	agents.append(_agent)
-#
-#func get_agents_in_radius(position, radius=10.0):
-#	var agents_in_radius = []
-#	var radius_squared = radius * radius
-#	for agent in agents:
-#		if position.distance_squared_to(agent.position) < radius_squared:
-#			agents_in_radius.append(agent)
-#	return agents_in_radius
-#
-#func get_average_velocity():
-#	# TODO dirty
-#	var velocity = Vector2(0.0, 0.0)
-#	for agent in agents:
-#		velocity += agent.velocity
-#	velocity /= len(agents)
-#	average_velocity = velocity
-#
-#func get_group_center():
-#	# TODO dirty
-#	center = Vector2(0.0, 0.0)
-#	for agent in agents:
-#		center += agent.position
-#	center /= len(agents)
-#
-#func get_group(agent):
-#    return agents
-#
-#func _process(delta):
-#    get_average_velocity()
-#    get_group_center()
-#    for agent in agents:
-#        agent.group = get_group(agent)
-#        agent.average_velocity = average_velocity
-#        agent.target = target
-#        agent.group_center = center
